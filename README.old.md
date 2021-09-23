@@ -1,1 +1,0 @@
-# nato-re.github.io
