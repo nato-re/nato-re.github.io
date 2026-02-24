@@ -24,8 +24,10 @@ useEffect(() => {
   if (import.meta.hot) {
     const handleUpdate = (data) => {
       console.log('[HMR] Evento recebido do servidor:', data);
+      console.log('[HMR] Slide ID do evento:', slideId);
       if (data.slideId === slideId) {
         if (iframeRef.current) {
+          console.log('[HMR] Atualizando iframe para slide:', slideId);
           const url = new URL(iframeRef.current.src);
           url.searchParams.set('t', Date.now());
           iframeRef.current.src = url.pathname + url.search + url.hash;

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import fs from 'fs'
+import {buildSingleSlide} from './scripts/watch-slides.js' 
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -13,18 +13,17 @@ export default defineConfig({
       name: 'watch-slides-content',
       configureServer(server) {
         // Observa a pasta onde ficam os HTMLs dos slides
-        const slidesPath = path.resolve(__dirname, 'public/slides')
+        const slidesPath = path.resolve(__dirname, 'dist/slides')
         server.watcher.add(slidesPath)
 
         server.watcher.on('change', (file) => {
-          const fileName = path.basename(file, '.html')
-          console.log(`[Vite] Slide alterado: ${fileName}`)
+          console.log(`[Vite] Slide alterado: ${file}`)
 
           // Se o arquivo alterado for um HTML dentro da pasta de slides
-          if (file.includes('dist/slides') && file.endsWith('.html')) {
-            const fileName = path.basename(file, '.html')
+          if (file.includes('slides') && file.endsWith('.md')) {
+            const fileName = path.basename(file, '.md')
             console.log(`[Vite] Slide alterado2: ${fileName}`)
-            
+            buildSingleSlide(fileName + '.md')
             // Avisa o front-end qual slide mudou
             server.ws.send({
               type: 'custom',
@@ -39,7 +38,7 @@ export default defineConfig({
   base: '/',
   server: {
     watch: {
-      ignored: ['node_modules/**']
+      ignored: ['node_modules/**', 'dist/**']
     }
   },
   build: {

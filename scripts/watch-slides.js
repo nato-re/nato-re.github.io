@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -17,7 +15,7 @@ console.log(`📁 Watching: ${slidesDir}`)
 
 let debounceTimer = null
 
-const buildSingleSlide = (filename) => {
+export const buildSingleSlide = (filename) => {
   const inputPath = path.join(slidesDir, filename)
   const outputFile = filename.replace('.md', '.html')
   const outputPath = path.join(outputDir, outputFile)
@@ -97,29 +95,3 @@ const updateManifest = () => {
   }
 }
 
-// Watch for changes in the slides directory
-fs.watch(slidesDir, { recursive: true }, (eventType, filename) => {
-  if (!filename || !filename.endsWith('.md')) {
-    return
-  }
-
-  console.log(`📝 Detected change in: ${filename}`)
-
-  // Debounce the build to handle multiple file changes
-  clearTimeout(debounceTimer)
-  debounceTimer = setTimeout(() => {
-    buildSingleSlide(filename)
-  }, 500)
-})
-
-// Initial build on startup - run full build
-console.log('\n🔄 Running initial build...')
-try {
-  execSync('npm run build:slides', { 
-    cwd: projectRoot,
-    stdio: 'inherit'
-  })
-  console.log('✅ Initial build complete')
-} catch (error) {
-  console.error('❌ Error during initial build:', error.message)
-}
