@@ -223,7 +223,7 @@ const fetchManifest = async () => {
         <iframe
           ref={iframeRef}
           className="slide-viewer-iframe"
-          src={`/slides/${slideId}.html${currentSlideIndex > 0 ? `#${currentSlideIndex}` : ''}`}
+          src={`/slide/${slideId}.html${currentSlideIndex > 0 ? `#${currentSlideIndex}` : ''}`}
           title={slideMetadata?.title || 'Slide'}
           frameBorder="0"
           scrolling="no"

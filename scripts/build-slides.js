@@ -88,7 +88,7 @@ markdownFiles.forEach(file => {
       title,
       description,
       file,
-      url: `/slides/${outputFile}`
+      url: `/slide/${outputFile}`
     })
   } catch (error) {
     console.error(`❌ Error converting ${file}:`, error.message)

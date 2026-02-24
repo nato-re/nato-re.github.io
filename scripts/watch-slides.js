@@ -77,7 +77,7 @@ const updateManifest = () => {
         title,
         description,
         file: mdFile,
-        url: `/slides/${file}`
+        url: `/slide/${file}`
       }
     })
 
