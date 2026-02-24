@@ -95,12 +95,13 @@ const fetchManifest = async () => {
         currentOrigin: window.location.origin,
         source: event.source
       })
-      
+      console.log('[SlideViewer] Current slide index:', currentSlideIndex)
+
       // Accept messages from same origin or wildcard
-      if (event.data && typeof event.data === 'object' && event.data.type === 'slidechange') {
-        const index = event.data.index 
+      if (event.data && typeof event.data === 'object' && event.data.type === 'slidechange' && currentSlideIndex !== event.data.index + 1) {
+        const index = event.data.index
         console.log('[SlideViewer] Received slide change message from iframe:', index)
-        setCurrentSlideIndex(Number(index))
+        setCurrentSlideIndex(Numbew´2rtr(index))
         // Update URL fragment with slide index - use replaceState to avoid history pollution
         window.history.replaceState(null, '', `#${index}`)
       }
