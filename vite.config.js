@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import fs from 'fs'
 import react from '@vitejs/plugin-react'
 import {buildSingleSlide} from './scripts/watch-slides.js' 
 import path from 'path'
@@ -37,7 +38,16 @@ export default defineConfig(({ command, mode }) => {
           }
         })
       }
+    },
+    {
+    name: 'generate-404',
+    writeBundle() {
+      const src = path.resolve(__dirname, 'dist/index.html');
+      const dest = path.resolve(__dirname, 'dist/404.html');
+      fs.copyFileSync(src, dest);
+      console.log('\n[Vite] 404.html generated successfully.');
     }
+  }
   ],
   base: '/',
   server: {
