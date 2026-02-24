@@ -1,0 +1,284 @@
+.slide-viewer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Header Styling */
+.slide-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.slide-viewer-header-left,
+.slide-viewer-header-right {
+  flex: 1;
+}
+
+.slide-viewer-header-center {
+  flex: 2;
+  text-align: center;
+  margin: 0 2rem;
+}
+
+.slide-viewer-title {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide-viewer-header-right {
+  text-align: right;
+}
+
+/* Navigation Buttons */
+.slide-viewer-nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0 0.5rem;
+}
+
+.slide-viewer-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide-viewer-nav-btn:active {
+  transform: translateY(0);
+}
+
+/* Content Area */
+.slide-viewer-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.slide-viewer-iframe {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Ensure Marp slides display properly inside iframe */
+.slide-viewer-iframe::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer Styling */
+.slide-viewer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slide-viewer-footer-left,
+.slide-viewer-footer-right {
+  flex: 1;
+}
+
+.slide-viewer-footer-center {
+  flex: 2;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.slide-viewer-file-name {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.slide-viewer-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide-viewer-nav-hint {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* Error and Loading States */
+.slide-viewer-error,
+.slide-viewer-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.slide-viewer-error h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.slide-viewer-error p {
+  max-width: 500px;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.slide-viewer-error button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.slide-viewer-error button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.slide-viewer-loading {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.slide-viewer-loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slide-viewer-header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .slide-viewer-title {
+    font-size: 1.2rem;
+    flex: 1 0 100%;
+    order: 3;
+    margin-top: 0.5rem;
+  }
+
+  .slide-viewer-header-center {
+    margin: 0;
+  }
+
+  .slide-viewer-header-left,
+  .slide-viewer-header-right {
+    flex: initial;
+  }
+
+  .slide-viewer-nav-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    margin: 0.25rem;
+  }
+
+  .slide-viewer-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .slide-viewer-footer-left,
+  .slide-viewer-footer-center,
+  .slide-viewer-footer-right {
+    flex: 1;
+    text-align: center;
+  }
+
+  .slide-viewer-nav-hint {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-viewer-header {
+    padding: 0.5rem;
+  }
+
+  .slide-viewer-title {
+    font-size: 1rem;
+  }
+
+  .slide-viewer-nav-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    margin: 0.25rem;
+  }
+
+  .slide-viewer-content {
+    padding: 0.5rem;
+  }
+
+  .slide-viewer-footer {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+}

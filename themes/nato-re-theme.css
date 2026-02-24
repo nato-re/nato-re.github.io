@@ -1,0 +1,261 @@
+/* NATO-RE Custom Marp Theme */
+
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --accent-color: #f093fb;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+  --border-color: #e0e0e0;
+}
+
+/* Overall slide styling */
+section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 60px;
+  font-size: 28px;
+}
+
+/* Title slide */
+section.title {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.title h1 {
+  font-size: 72px;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+section.title p {
+  font-size: 32px;
+  margin-top: 20px;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* Headings */
+h1 {
+  font-size: 60px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 20px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Lists */
+ul, ol {
+  margin: 20px 0;
+  padding-left: 40px;
+}
+
+li {
+  margin: 15px 0;
+  line-height: 1.6;
+  font-size: 28px;
+}
+
+li::marker {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Code blocks */
+code {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+}
+
+pre {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  overflow-x: auto;
+  border-left: 4px solid var(--accent-color);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  font-size: 26px;
+  border-radius: 4px;
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Tables */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+th {
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+td {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  max-height: 60vh;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  margin: 30px 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.highlight {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.success {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.warning {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.error {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.info {
+  color: #2196f3;
+  font-weight: 600;
+}
+
+/* Two-column layout */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Speaker notes (optional) */
+footer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px;
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+/* Pagination */
+section::after {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+/* Transitions */
+section {
+  transition: all 0.3s ease;
+}
+
+/* Print styles */
+@media print {
+  section {
+    page-break-after: always;
+  }
+}

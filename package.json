@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"npm run watch:slides\"",
     "build": "vite build",
     "preview": "vite preview",
-    "build:slides": "node scripts/build-slides.js"
+    "build:slides": "node scripts/build-slides.js && node scripts/sync-slides.js",
+    "watch:slides": "node scripts/watch-slides.js"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^9.2.1",
     "vite": "^5.0.0"
   }
 }

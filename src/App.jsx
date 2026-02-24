@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import PresentationList from './components/PresentationList'
+import SlideViewer from './components/SlideViewer'
 import './App.css'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<PresentationList />} />
-        {/* Slides are served as static HTML files in /slides/* */}
+        <Route path="/slide/:slideId" element={<SlideViewer />} />
       </Routes>
     </Router>
   )

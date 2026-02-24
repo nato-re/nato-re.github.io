@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './PresentationList.css'
 
 function PresentationList() {
+  const navigate = useNavigate()
   const [presentations, setPresentations] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -64,28 +66,37 @@ function PresentationList() {
             <p>Add .md files to the <code>slides/</code> directory and build the project.</p>
           </div>
         ) : (
-          <div className="presentations-grid">
-            {presentations.map((presentation) => (
-              <a
-                key={presentation.id}
-                href={presentation.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="presentation-card"
-              >
-                <div className="card-content">
-                  <h2>{presentation.title}</h2>
-                  {presentation.description && (
-                    <p className="description">{presentation.description}</p>
-                  )}
-                  <div className="card-meta">
-                    <span className="file-name">{presentation.file}</span>
+          <div>
+            <div className="presentations-grid">
+
+              {presentations.map((presentation) => (
+                <div
+                  key={presentation.id}
+                  onClick={() => navigate(`/slide/${presentation.id}`)}
+                  className="presentation-card"
+                  role="button"
+                  tabIndex="0"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      navigate(`/slide/${presentation.id}`)
+                    }
+                  }}
+                >
+                  <div className="card-content">
+                    <h2>{presentation.title}</h2>
+                    {presentation.description && (
+                      <p className="description">{presentation.description}</p>
+                    )}
+                    <div className="card-meta">
+                      <span className="file-name">{presentation.file}</span>
+                    </div>
                   </div>
+                  <div className="card-arrow">→</div>
                 </div>
-                <div className="card-arrow">→</div>
-              </a>
-            ))}
+              ))}
+            </div>
           </div>
+
         )}
       </div>
     </div>

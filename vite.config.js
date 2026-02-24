@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Determine the base URL based on environment
-const isGitHubPages = process.env.GITHUB_PAGES === 'true'
-const repoName = 'nato-re.github.io'
-const isDev = process.env.NODE_ENV !== 'production'
-
 export default defineConfig({
   plugins: [react()],
-  base: isDev ? '/' : '/',
+  base: '/',
+  server: {
+    watch: {
+      ignored: ['node_modules/**']
+    }
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

@@ -13,6 +13,9 @@ dist
 dist-ssr
 *.local
 
+# Generated files (public folder is generated during build)
+public
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
