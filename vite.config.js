@@ -6,7 +6,11 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig({
+export default defineConfig(({ command, mode }) => {
+  // Check if we are building for production (GitHub Pages)
+  const isProduction = mode === 'production';
+  
+  return {
   plugins: [
     react(),
 {
@@ -58,5 +62,5 @@ export default defineConfig({
         }
       }
     }
-  }
+  }}
 })
