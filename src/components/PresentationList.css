@@ -1,0 +1,110 @@
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.no-presentations {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.no-presentations code {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #333;
+}
+
+.presentations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.presentation-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.presentation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-content {
+  flex: 1;
+}
+
+.presentation-card h2 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.presentation-card .description {
+  font-size: 0.95em;
+  opacity: 0.9;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-name {
+  font-size: 0.85em;
+  opacity: 0.8;
+  font-family: monospace;
+}
+
+.card-arrow {
+  font-size: 1.8em;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.presentation-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .presentations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-content {
+    padding: 20px;
+  }
+}
