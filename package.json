@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build:slides": "node scripts/build-slides.js",
+    "build:slides": "node scripts/build-slides.js && node scripts/sync-slides.js",
     "watch:slides": "node scripts/watch-slides.js"
   },
   "dependencies": {

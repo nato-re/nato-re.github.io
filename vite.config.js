@@ -7,6 +7,9 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ command, mode }) => {
+  // Check if we are building for production (GitHub Pages)
+  const isProduction = mode === 'production';
+  
   return {
   plugins: [
     react(),
@@ -14,7 +17,7 @@ export default defineConfig(({ command, mode }) => {
       name: 'watch-slides-content',
       configureServer(server) {
         // Observa a pasta onde ficam os HTMLs dos slides
-        const slidesPath = path.resolve(__dirname, 'dist/slide')
+        const slidesPath = path.resolve(__dirname, 'dist/slides')
         server.watcher.add(slidesPath)
 
         server.watcher.on('change', (file) => {
