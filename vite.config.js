@@ -22,7 +22,7 @@ export default defineConfig({
           // Se o arquivo alterado for um HTML dentro da pasta de slides
           if (file.includes('slides') && file.endsWith('.md')) {
             const fileName = path.basename(file, '.md')
-            console.log(`[Vite] Slide alterado2: ${fileName}`)
+            console.log(`[Vite] Slide alterado(NO IF): ${fileName}`)
             buildSingleSlide(fileName + '.md')
             // Avisa o front-end qual slide mudou
             server.ws.send({

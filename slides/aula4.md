@@ -5,11 +5,11 @@ theme: uncover
 ---
 
 
-# Formulários, Requisições e CSS
+# Formulários, Requisições e CSS 
 
 ---
 
-## Echo 
+## Echo
 
 É a palavra chave do PHP que escreve informações no HTML resultante, como é muito comum fazer isso temos um _sugar syntax_ para isso.
 
@@ -65,8 +65,8 @@ No PHP, podemos adquirir informações das requisições através das variáveis
 ```php
 // arquivo.php
 <?php
-$usuario = $POST['user'];
-$senha = $POST['password'];
+$usuario = $_POST['user'];
+$senha = $_POST['password'];
 
 if($usuario === 'nato-re' && $senha === '12345678'){
   $mensagem = "Credencias validadas com sucesso";

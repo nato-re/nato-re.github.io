@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const projectRoot = path.resolve(__dirname, '..')
 const slidesDir = path.join(projectRoot, 'slides')
-const outputDir = path.join(projectRoot, 'dist', 'slides')
+const outputDir = path.join(projectRoot, 'public', 'slides')
 const themePath = path.join(projectRoot, 'themes', 'nato-re-theme.css')
 
 console.log('👀 Watching slides directory for changes...')
@@ -35,7 +35,7 @@ export const buildSingleSlide = (filename) => {
 
     // Inject slide tracker script into the HTML
     const htmlContent = fs.readFileSync(outputPath, 'utf-8')
-    const trackerScript = fs.readFileSync(path.join(projectRoot, 'slides-tracker.js'), 'utf-8')
+    const trackerScript = fs.readFileSync(path.join(projectRoot, 'scripts', 'slides-tracker.js'), 'utf-8')
     const injectedHtml = htmlContent.replace(
       '</body>',
       `<script>${trackerScript}</script></body>`

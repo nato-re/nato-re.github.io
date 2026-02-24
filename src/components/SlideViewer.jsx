@@ -30,6 +30,7 @@ useEffect(() => {
           console.log('[HMR] Atualizando iframe para slide:', slideId);
           const url = new URL(iframeRef.current.src);
           url.searchParams.set('t', Date.now());
+          console.log('[HMR] Nova URL do iframe:', url);
           iframeRef.current.src = url.pathname + url.search + url.hash;
         }
       }
@@ -101,7 +102,7 @@ const fetchManifest = async () => {
       if (event.data && typeof event.data === 'object' && event.data.type === 'slidechange' && currentSlideIndex !== event.data.index + 1) {
         const index = event.data.index
         console.log('[SlideViewer] Received slide change message from iframe:', index)
-        setCurrentSlideIndex(Numbew´2rtr(index))
+        setCurrentSlideIndex(Number(index))
         // Update URL fragment with slide index - use replaceState to avoid history pollution
         window.history.replaceState(null, '', `#${index}`)
       }
