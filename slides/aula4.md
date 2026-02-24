@@ -13,17 +13,33 @@ theme: uncover
 
 É a palavra chave do PHP que escreve informações no HTML resultante, como é muito comum fazer isso temos um _sugar syntax_ para isso.
 
-```php
-<?php
-  $texto = "olá mundo";
-?>
-<h1> <?php echo $texto ?> </h1>
-<h1> <?= $texto ?> </h1>
-```
+<div style="display: flex; gap: 20px;">
 
-<div>
-  <h1>Olá mundo</h1>
-  <h1>Olá mundo</h1>
+  <div style="flex: 1;">
+
+  ##### 🐘 Código PHP
+  ```php
+  <?php
+    $texto = "olá mundo";
+  ?>
+  <h1> <?php echo $texto ?> </h1>
+  <h1> <?= $texto ?> </h1>
+  ```
+
+  </div>
+
+  <div style="flex: 1;">
+
+  #### 🌐 HTML Resultante
+  ```html
+  <div>
+    <h1>Olá mundo</h1>
+    <h1>Olá mundo</h1>
+  </div>
+  ```
+
+  </div>
+
 </div>
 
 ---
@@ -33,15 +49,18 @@ theme: uncover
 No PHP, podemos adquirir informações das requisições através das variáveis `$POST` e `$GET`;
 
 ```php
+<?php
 $usuario = $POST['user'];
 $senha = $POST['password'];
 
 if($usuario === 'nato-re' && $senha === '12345678'){
-  echo "Credencias validadas com sucesso";
+  $mensagem = "Credencias validadas com sucesso";
 } else {
-  echo "Usuário ou senha inválidos";
+  $mensagem = "Usuário ou senha inválidos";
 }
-
+?>
+olaqaw´       eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee      mjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkhge
+<h1> <?= $mensagem ?> </h1>
 ```
 
 ---

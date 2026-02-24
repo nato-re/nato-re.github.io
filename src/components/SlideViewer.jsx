@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './SlideViewer.css'
-
+// Função simples para gerar um hash/checksum do conteúdo do manifesto
+const generateHash = (obj) => {
+  return btoa(JSON.stringify(obj)).substring(0, 16);
+};
 function SlideViewer() {
   const { slideId } = useParams()
   const navigate = useNavigate()
@@ -9,24 +12,36 @@ function SlideViewer() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [allSlides, setAllSlides] = useState([])
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(1)
+  const fragment = window.location.hash.substring(1) // Remove #
+// Ref para persistir o hash atual sem disparar re-renders desnecessários
+  const lastManifestHash = useRef(localStorage.getItem('manifest_hash'))
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(fragment ? parseInt(fragment, 10) : 1)
   const iframeRef = React.useRef(null)
 
-  // Fetch slides manifest to get metadata and list of all slides
+// Fetch slides manifest com verificação de Hash
   useEffect(() => {
     const fetchManifest = async () => {
       try {
-        const response = await fetch('/slides-manifest.json')
+        // Adicionamos um timestamp para ignorar o cache do navegador na verificação
+        const response = await fetch(`/slides-manifest.json`)
         if (!response.ok) throw new Error('Failed to load slides manifest')
+        
         const manifest = await response.json()
         setAllSlides(manifest.presentations || [])
+
       } catch (err) {
         console.error('Error loading manifest:', err)
+        setError('Erro ao verificar atualizações do manifesto.')
       }
     }
-    fetchManifest()
-  }, [])
 
+    if (import.meta.hot) {
+      import.meta.hot.on('manifest-changed', (data) => {
+        console.log('[HMR] Recebido aviso de mudança no manifesto!');
+        fetchManifest(); // Chame a sua função de fetch que já criamos
+      });
+    }
+  }, [allSlides.length])
   // Get metadata from manifest when slideId or allSlides change
   useEffect(() => {
     if (!slideId) {
