@@ -9,23 +9,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [
     react(),
-    {
-      name: 'watch-slides',
+{
+      name: 'watch-slides-content',
       configureServer(server) {
-        // Caminho absoluto para o manifesto na pasta public
-        const manifestPath = path.resolve(__dirname, 'public/slides-manifest.json')
-        
-        // Força o Vite a observar este arquivo específico
-        server.watcher.add(manifestPath)
+        // Observa a pasta onde ficam os HTMLs dos slides
+        const slidesPath = path.resolve(__dirname, 'public/slides')
+        server.watcher.add(slidesPath)
 
         server.watcher.on('change', (file) => {
-          if (file === manifestPath) {
-            console.log('[Vite] Manifesto alterado, avisando cliente...')
-            // Envia um evento customizado em vez de dar reload total
+          const fileName = path.basename(file, '.html')
+          console.log(`[Vite] Slide alterado: ${fileName}`)
+
+          // Se o arquivo alterado for um HTML dentro da pasta de slides
+          if (file.includes('dist/slides') && file.endsWith('.html')) {
+            const fileName = path.basename(file, '.html')
+            console.log(`[Vite] Slide alterado2: ${fileName}`)
+            
+            // Avisa o front-end qual slide mudou
             server.ws.send({
               type: 'custom',
-              event: 'manifest-changed',
-              data: { updated: true }
+              event: 'slide-content-update',
+              data: { slideId: fileName }
             })
           }
         })

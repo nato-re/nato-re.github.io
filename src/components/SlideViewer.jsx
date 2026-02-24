@@ -18,30 +18,45 @@ function SlideViewer() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(fragment ? parseInt(fragment, 10) : 1)
   const iframeRef = React.useRef(null)
 
+useEffect(() => {
+  console.log("[HMR] Registrando ouvinte de slides..."); // Se isso não aparecer, o useEffect não rodou
+
+  if (import.meta.hot) {
+    const handleUpdate = (data) => {
+      console.log('[HMR] Evento recebido do servidor:', data);
+      if (data.slideId === slideId) {
+        if (iframeRef.current) {
+          const url = new URL(iframeRef.current.src);
+          url.searchParams.set('t', Date.now());
+          iframeRef.current.src = url.pathname + url.search + url.hash;
+        }
+      }
+    };
+
+    import.meta.hot.on('slide-content-update', handleUpdate);
+
+    return () => {
+      import.meta.hot.off('slide-content-update', handleUpdate);
+    };
+  }
+}, [slideId]);
 // Fetch slides manifest com verificação de Hash
-  useEffect(() => {
-    const fetchManifest = async () => {
+useEffect(() => {
+const fetchManifest = async () => {
       try {
         // Adicionamos um timestamp para ignorar o cache do navegador na verificação
-        const response = await fetch(`/slides-manifest.json`)
+        const response = await fetch(`/slides-manifest.json?t=${Date.now()}`)
         if (!response.ok) throw new Error('Failed to load slides manifest')
         
         const manifest = await response.json()
         setAllSlides(manifest.presentations || [])
-
       } catch (err) {
         console.error('Error loading manifest:', err)
         setError('Erro ao verificar atualizações do manifesto.')
       }
     }
-
-    if (import.meta.hot) {
-      import.meta.hot.on('manifest-changed', (data) => {
-        console.log('[HMR] Recebido aviso de mudança no manifesto!');
-        fetchManifest(); // Chame a sua função de fetch que já criamos
-      });
-    }
-  }, [allSlides.length])
+    fetchManifest()
+  }, [])
   // Get metadata from manifest when slideId or allSlides change
   useEffect(() => {
     if (!slideId) {
