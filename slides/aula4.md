@@ -37,19 +37,34 @@ theme: uncover
     <h1>Olá mundo</h1>
   </div>
   ```
-
   </div>
 
 </div>
 
 ---
 
+## Css Inline no PHP
+
+```php
+<?php 
+$r = rand(0, 255); 
+$g = rand(0, 255);
+$b = rand(0, 255);
+$color = "rgb($r, $g, $b)";
+?>
+<body style="background-color: $color">
+  <p><?= $color ?></p>
+</body>
+```
+
+--- 
 
 ## Formulários
-Formulário é uma tag `HTML` que permite que o usuário faça requisições enviando dados dos _inputs_ dentro dele. Esses dados são enviados como _query params_ no caso do `method` GET e Form Data no caso do `POST`.
+Formulário é uma tag `HTML` que permite que o usuário faça requisições enviando dados dos _inputs_ dentro dele. Esses dados são enviados como _query params_ no caso do `method` GET e FormData no caso do `POST`.
 
 ```html
-<form action="/arquivo.php" method="POST">
+<!-- form.php -->
+<form action="/login.php" method="POST">
     <input name='user' />
     <input name='password' />
     <button>Login</button>
@@ -60,10 +75,10 @@ Formulário é uma tag `HTML` que permite que o usuário faça requisições env
 
 ## Requisições
 
-No PHP, podemos adquirir informações das requisições através das variáveis `$POST` e `$GET`;
+No PHP, podemos adquirir informações das requisições através das variáveis `$_POST` e `$_GET`;
 
 ```php
-// arquivo.php
+// login.php
 <?php
 $usuario = $_POST['user'];
 $senha = $_POST['password'];
