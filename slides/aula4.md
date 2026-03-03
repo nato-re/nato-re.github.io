@@ -52,7 +52,7 @@ $g = rand(0, 255);
 $b = rand(0, 255);
 $color = "rgb($r, $g, $b)";
 ?>
-<body style="background-color: $color">
+<body style="background-color: <?= $color ?>">
   <p><?= $color ?></p>
 </body>
 ```
@@ -97,7 +97,7 @@ if($usuario === 'nato-re' && $senha === '12345678'){
 ## Exercício 1
 
 Crie uma página (atv1.hmtl) que contenha um formulário com um campo de texto para o usuário digitar seu nome. Ao clicar em um botão de "Enviar", a página deve enviar o formulário para um arquivo PHP (atv1.php), que processa os dados e exibe a mensagem: "Olá, [nome do usuário]! Seja bem-vindo ao mundo do PHP."
-Dica: Lembre-se que a action define para onde o form envia a requisição e que é possível acessar as informações do corpo de uma requisição do tipo POST, através do $_POST.
+> Dica: Lembre-se que a action define para onde o form envia a requisição e que é possível acessar as informações do corpo de uma requisição do tipo POST, através do $_POST.
 
 --- 
 
