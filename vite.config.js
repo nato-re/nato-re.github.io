@@ -18,8 +18,9 @@ export default defineConfig(({ command, mode }) => {
       name: 'watch-slides-content',
       configureServer(server) {
         // Observa a pasta onde ficam os HTMLs dos slides
-        const slidesPath = path.resolve(__dirname, 'dist/slides')
+        const slidesPath = path.resolve(__dirname, 'slides')
         server.watcher.add(slidesPath)
+        console.log(`[Vite] Observando a pasta de slides: ${slidesPath}`)
 
         server.watcher.on('change', (file) => {
           console.log(`[Vite] Slide alterado: ${file}`)
