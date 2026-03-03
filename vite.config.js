@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import fs from 'fs'
 import react from '@vitejs/plugin-react'
 import {buildSingleSlide} from './scripts/watch-slides.js' 
 import path from 'path'
@@ -6,7 +7,11 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig({
+export default defineConfig(({ command, mode }) => {
+  // Check if we are building for production (GitHub Pages)
+  const isProduction = mode === 'production';
+  
+  return {
   plugins: [
     react(),
 {
@@ -22,7 +27,7 @@ export default defineConfig({
           // Se o arquivo alterado for um HTML dentro da pasta de slides
           if (file.includes('slides') && file.endsWith('.md')) {
             const fileName = path.basename(file, '.md')
-            console.log(`[Vite] Slide alterado2: ${fileName}`)
+            console.log(`[Vite] Slide alterado(NO IF): ${fileName}`)
             buildSingleSlide(fileName + '.md')
             // Avisa o front-end qual slide mudou
             server.ws.send({
@@ -33,7 +38,16 @@ export default defineConfig({
           }
         })
       }
+    },
+    {
+    name: 'generate-404',
+    writeBundle() {
+      const src = path.resolve(__dirname, 'dist/index.html');
+      const dest = path.resolve(__dirname, 'dist/404.html');
+      fs.copyFileSync(src, dest);
+      console.log('\n[Vite] 404.html generated successfully.');
     }
+  }
   ],
   base: '/',
   server: {
@@ -58,5 +72,5 @@ export default defineConfig({
         }
       }
     }
-  }
+  }}
 })
