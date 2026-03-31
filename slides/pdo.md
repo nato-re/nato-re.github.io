@@ -231,7 +231,7 @@ Notas para o Instrutor:
 **Missões (C-R-U-D 100% PDO):**
 1. 🔨 `INSERT`: Registrar nova Região (Shurima, Zaun, Piltover).
 2. 📖 `SELECT`: Listar o mapa e as lores históricas.
-3. 🔧 `UPDATE`: (Opcional) Editar os detalhes bélicos/culturais.
+3. 🔧 `UPDATE`: Editar os detalhes bélicos/culturais.
 4. 🗑️ `DELETE`: Destruir a região corrompida pelo Vazio.
 
 <!--
