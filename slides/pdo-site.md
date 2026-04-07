@@ -100,14 +100,52 @@ Sem isso, o PHP não sabe o que é um DAO ou como conectar no banco!
 
 ---
 
-## ⚔️ O Grande Desafio (Sua vez de jogar!)
+# 🚀 Missão: Sistema de Inventário de Mundos
 
-**Missão:** Criar do zero um CRUD para as **Regiões** de Runeterra (Demacia, Noxus, Ionia, etc).
+**Contexto:** Uma Wiki de games contratou você para desenvolver o módulo de gerenciamento de cenários. Você deve permitir que usuários cadastrem locais icônicos e os visualizem em uma galeria.
 
-1. **Banco de Dados**: Crie um novo script SQL montando a tabela `regioes` (`id`, `nome`, `estilo_governo`, e `imagem_bandeira`).
-2. **Setup Inicial**: Crie a Entidade `Region.php` e seu `RegionDAO.php`.
-3. **Formulário**: Crie sua `region.create.view.php`. Lembre-se do `action="region.create.process.php"`!
-4. **O Entregador**: Programe o arquivo Process para pegar os dados do Post e enviar para o DAO.
-5. **A Tela Principal**: Crie a `region.list.view.php` exibindo as bandeiras das regiões em uma tabela estilizada!
+### 📋 Requisitos de Dados
+Cada cenário deve conter:
+* **Nome** (Ex: *Lost Izalith*)
+* **Descrição** (Ex: *Uma cidade submersa em lava...*)
+* **Nome do Jogo** (Ex: *Dark Souls*)
+* **Imagem** (URL de uma imagem do cenário)
 
-Será que você consegue platinar esse desafio? GLHF! (Good Luck, Have Fun!)
+---
+
+# 📂 Mapa do Projeto (Arquivos Necessários)
+
+Para platinar este desafio, você deve criar os seguintes arquivos seguindo o padrão **DAO**:
+
+### 1. 🗄️ Database & Conexão
+* `banco.sql`: Script de criação da tabela `cenarios`.
+* `Connection.php`: Classe responsável pela conexão via **PDO**.
+
+### 2. 🏛️ Estrutura e Lógica (Core)
+* `Cenario.php`: **Entidade** (Classe com atributos e getters/setters).
+* `CenarioDAO.php`: **Objeto de Acesso a Dados** (Contém as funções de `INSERT` e `SELECT`).
+
+---
+
+# 📂 Mapa do Projeto (Arquivos Necessários)
+
+### 3. 🎨 Interface (Views)
+* `cenario.create.view.php`: Formulário HTML para entrada de dados.
+* `cenario.list.view.php`: Tabela ou Grid de cards exibindo os dados e a imagem.
+
+### 4. ⚙️ Engrenagem (Process)
+* `cenario.create.process.php`: Recebe o `$_POST`, instancia o DAO e redireciona o usuário.
+
+---
+
+# 🎯 Critérios de Sucesso
+
+Ao final da aula, seu projeto deve ser capaz de:
+
+1.  **Persistir:** Salvar um cenário no banco de dados e ele não sumir ao dar F5.
+2.  **Renderizar:** Exibir a imagem do cenário diretamente na lista (`<img src="...">`).
+3.  **Organizar:** Não ter código SQL dentro dos arquivos de View. Tudo deve passar pelo **DAO**.
+
+> 💡 **Dica de Pro:** Use o **Bootstrap** ou **Tailwind** para deixar sua galeria de mundos com cara de site profissional!
+
+**Bom código, player 1!**
