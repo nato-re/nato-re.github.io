@@ -17,7 +17,7 @@ Bem-vindo! Aqui você encontra os materiais da disciplina. Navegue pelas aulas, 
 
 | Aula | Conteúdo | Material de Leitura | Slides |
 |------|----------|-------------------|--------|
-| 01 | Onboarding, Validações e Paginação | [[Aulas/Aula01_FalaQ\|📖 Leitura]] | [📽️ Marp](/slides/Aula01_FalaQ.html) · [🎞️ Reveal](/slides/Aula01.html) |
+| 01 | Onboarding, Validações e Paginação | [[Aulas/aula01-marp\|📖 Leitura]] | [📽️ Marp](/slides/aula01-marp.html) · [🎞️ Reveal](/slides/aula01-reveal.html) |
 | 02 | *Em breve* | — | — |
 
 ---
