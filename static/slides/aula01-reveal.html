@@ -308,6 +308,28 @@ public function index(Request $request)
       <p style="margin-top:0.6em;">Status: <strong style="color:var(--green);">200 OK</strong> · Query time: <strong style="color:var(--green);">&lt; 5ms</strong> · Memória: <strong style="color:var(--green);">-97%</strong> 🎉</p>
     </section>
 
+    <!-- SLIDE 5B: A View no Blade -->
+    <section>
+      <h3>Frontend · View Blade</h3>
+      <h2>Como a View renderiza a Paginação?</h2>
+
+      <pre><code class="html">&lt;!-- eventos/show.blade.php --&gt;
+&lt;h1&gt;{{ $evento-&gt;titulo }}&lt;/h1&gt;
+
+@foreach($perguntas as $pergunta)
+    &lt;div class="card my-2 p-3"&gt;
+        &lt;p&gt;{{ $pergunta-&gt;texto }}&lt;/p&gt;
+    &lt;/div&gt;
+@endforeach
+
+&lt;!-- Botões de navegação automáticos do Laravel --&gt;
+&lt;div class="mt-4"&gt;
+    {{ $perguntas-&gt;links() }}
+&lt;/div&gt;</code></pre>
+
+      <p style="margin-top:0.5em;">O método <code>links()</code> no objeto <code>$perguntas</code> gera o HTML dos botões de páginas mantendo os parâmetros de filtro.</p>
+    </section>
+
     <!-- SLIDE 6: Fix Ticket 001 -->
     <section>
       <h3>Ticket #001 · Fix</h3>

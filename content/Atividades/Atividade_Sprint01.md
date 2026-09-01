@@ -8,7 +8,7 @@ status: published
 publish_date: 2026-09-01T08:00:00Z
 due_date: 2026-09-08T23:59:59Z
 points: 10
-base_repo: https://github.com/cotemig/falaq-base
+base_repo: https://github.com/nato-re/falaq-base
 autograder_rubric: consolidation_etapa3.yaml
 tags:
   - laravel
@@ -17,13 +17,13 @@ tags:
   - etapa3
   - cotemig/3b1
 created: 2026-08-31T20:35
-updated: 2026-08-31T23:50
+updated: 2026-09-01T09:10
 ---
 
 # 🚀 [Sprint 01] Estabilização do MVP: Trolls e Travamentos
 
 > 📢 **Publicação Agendada:** Terça-feira (01/09) para a **Turma 3B1**.  
-> 💡 *Turmas anteriores:* Caso já tenha concluído a atividade em sala, consulte o [[Atividades/Atividade_Sprint01_Gabarito|🔑 Gabarito Oficial]].
+> 💡 *Turmas anteriores:* Caso já tenha concluído a atividade em sala, consulte o [[Atividade_Sprint01_Gabarito|🔑 Gabarito Oficial]].
 
 ---
 

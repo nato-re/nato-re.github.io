@@ -30,7 +30,7 @@ style: |
 paginate: true
 class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:56
+updated: 2026-09-01T00:02
 ---
 
 > [!TIP] Apresentação
@@ -194,3 +194,25 @@ $perguntas = Pergunta::where('evento_id', $evento->id)
                      ->paginate(10);                   
 ```
 *(Não esqueçam de colocar `{{ $perguntas->links() }}` no Blade!)*
+
+---
+
+## 🖥️ Como a View (`eventos/show.blade.php`) Funciona?
+
+O `compact('evento', 'perguntas')` injeta os dados na View:
+
+```blade
+<h1>{{ $evento->titulo }}</h1>
+
+{{-- 1. Loop apenas pelos 10 itens da página atual --}}
+@foreach($perguntas as $pergunta)
+    <div class="card my-2 p-3">
+        <p>{{ $pergunta->texto }}</p>
+    </div>
+@endforeach
+
+{{-- 2. O Laravel gera automaticamente o HTML dos botões de navegação --}}
+<div class="mt-4">
+    {{ $perguntas->links() }}
+</div>
+```
