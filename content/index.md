@@ -4,7 +4,7 @@ tags:
   - wiki
   - home
 created: 2026-08-31T20:12
-updated: 2026-08-31T23:24
+updated: 2026-08-31T23:25
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel

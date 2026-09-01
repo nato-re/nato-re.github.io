@@ -31,22 +31,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Marp Slides (Apresentações)
+      - name: Build Quartz (Wiki)
+        run: npx quartz build
+
+      - name: Build Marp Slides + Copiar Reveal.js
         run: |
           mkdir -p public/slides
           npx -y @marp-team/marp-cli@latest \
             --input-dir content/Aulas/ \
             --output public/slides/ \
             --allow-local-files
-          echo "Slides Marp gerados:"
-          ls public/slides/
-
-      - name: Build Quartz (Wiki)
-        run: npx quartz build
-
-      - name: Copiar Reveal.js de static/slides para public/slides
-        run: |
-          mkdir -p public/slides
           cp static/slides/*.html public/slides/ 2>/dev/null || true
           echo "Todos os slides em public/slides/:"
           ls public/slides/

@@ -29,7 +29,7 @@ style: |
 paginate: true
 class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:24
+updated: 2026-08-31T23:25
 ---
 
 > [!TIP] Apresentação
