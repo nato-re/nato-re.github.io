@@ -31,13 +31,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Quartz (Wiki)
-        run: npx quartz build
-
       - name: Build Marp Slides (Apresentações)
         run: |
-          mkdir -p static/slides
-          npx -y @marp-team/marp-cli@latest -I content/Aulas/ -o static/slides/
+          npx -y @marp-team/marp-cli@latest -I content/Aulas/ -o content/Aulas/
+
+      - name: Build Quartz (Wiki + Slides)
+        run: npx quartz build
+
+      - name: Mover slides para public/slides/
+        run: |
+          mkdir -p public/slides
+          find content/Aulas/ -name "*.html" -exec cp {} public/slides/ \;
+          echo "Slides gerados:"
+          ls public/slides/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
