@@ -4,7 +4,7 @@ tags:
   - wiki
   - home
 created: 2026-08-31T20:12
-updated: 2026-08-31T23:25
+updated: 2026-08-31T23:49
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
@@ -15,10 +15,10 @@ Bem-vindo! Aqui você encontra os materiais da disciplina. Navegue pelas aulas, 
 
 ## 📅 3ª Etapa: Projeto FalaQ-Eu_T_3scuto
 
-| Aula | Conteúdo | Material de Leitura | Slides |
-|------|----------|-------------------|--------|
-| 01 | Onboarding, Validações e Paginação | [[Aulas/aula01-marp\|📖 Leitura]] | [📽️ Marp](/slides/aula01-marp.html) · [🎞️ Reveal](/slides/aula01-reveal.html) |
-| 02 | *Em breve* | — | — |
+| Aula | Conteúdo | Material de Leitura | Slides | Atividade (Alunos) | Gabarito (Prof / Outras Turmas) |
+|------|----------|-------------------|--------|--------------------|---------------------------------|
+| 01 | Onboarding, Validações e Paginação | [[Aulas/aula01-marp\|📖 Leitura]] | [📽️ Marp](/slides/aula01-marp.html) · [🎞️ Reveal](/slides/aula01-reveal.html) | [[Atividades/Atividade_Sprint01\|🎯 Atividade (3B1)]] | [[Atividades/Atividade_Sprint01_Gabarito\|🔑 Gabarito Resolvido]] |
+| 02 | *Em breve* | — | — | — | — |
 
 ---
 
