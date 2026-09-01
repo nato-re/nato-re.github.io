@@ -21,6 +21,7 @@ style: |
   pre { background:#1e2130; border-left:3px solid var(--color-accent); border-radius:8px; padding:1em 1.4em; }
   pre code { background:none; color:#e2e8f0; font-size:.75em; line-height:1.7; }
   blockquote { background:#1a1d27; border-left:4px solid var(--color-accent); border-radius:0 8px 8px 0; padding:.8em 1.2em; color:#94a3b8; font-style:normal; }
+  section.lead blockquote { display: none; }
   section.lead h1 { background:linear-gradient(135deg,#a78bfa,#7c6af7,#4ade80); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   section::after { color:#2e3347; font-size:.6em; }
   table { width:100%; border-collapse:collapse; font-size:.85em; }
@@ -29,7 +30,7 @@ style: |
 paginate: true
 class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:53
+updated: 2026-08-31T23:56
 ---
 
 > [!TIP] Apresentação
@@ -48,7 +49,6 @@ updated: 2026-08-31T23:53
 2. **Revisão:** O Fluxo MVC no nosso ecossistema
 3. **Ticket #001 (Segurança):** Bloqueando spam com FormRequests
 4. **Ticket #002 (Performance):** Consertando queries pesadas (`where`, `sort`, `paginate`)
-5. **Daily de Fechamento (Slido)**
 
 ---
 
@@ -194,14 +194,3 @@ $perguntas = Pergunta::where('evento_id', $evento->id)
                      ->paginate(10);                   
 ```
 *(Não esqueçam de colocar `{{ $perguntas->links() }}` no Blade!)*
-
----
-
-# 🛑 5. Daily de Fechamento
-
----
-
-## Hora do Slido!
-Peguem os celulares. Vamos validar o que aprendemos hoje sobre Códigos HTTP e Paginação.
-
-*(QR CODE AQUI)*
