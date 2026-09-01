@@ -29,12 +29,12 @@ style: |
 paginate: true
 class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:23
+updated: 2026-08-31T23:24
 ---
 
 > [!TIP] Apresentação
 > 📽️ **[Abrir Slides (Marp)](/slides/Aula01_FalaQ.html)** — Versão para projeção em sala de aula.
-> 🎞️ **[Abrir Slides (Reveal.js)](/slides/Sprint01.html)** — Versão com animações e tela cheia.
+> 🎞️ **[Abrir Slides (Reveal.js)](/slides/Aula01.html)** — Versão com animações e tela cheia.
 
 
 # 🚀 Bem-vindos à FalaQ-Eu_T_3scuto!

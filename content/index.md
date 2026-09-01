@@ -4,7 +4,7 @@ tags:
   - wiki
   - home
 created: 2026-08-31T20:12
-updated: 2026-08-31T23:23
+updated: 2026-08-31T23:24
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
@@ -17,7 +17,7 @@ Bem-vindo! Aqui você encontra os materiais da disciplina. Navegue pelas aulas, 
 
 | Aula | Conteúdo | Material de Leitura | Slides |
 |------|----------|-------------------|--------|
-| 01 | Onboarding, Validações e Paginação | [[Aulas/Aula01_FalaQ\|📖 Leitura]] | [📽️ Marp](/slides/Aula01_FalaQ.html) · [🎞️ Reveal](/slides/Sprint01.html) |
+| 01 | Onboarding, Validações e Paginação | [[Aulas/Aula01_FalaQ\|📖 Leitura]] | [📽️ Marp](/slides/Aula01_FalaQ.html) · [🎞️ Reveal](/slides/Aula01.html) |
 | 02 | *Em breve* | — | — |
 
 ---
