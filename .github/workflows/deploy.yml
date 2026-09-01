@@ -34,7 +34,10 @@ jobs:
       - name: Build Marp Slides (Apresentações)
         run: |
           mkdir -p public/slides
-          npx -y @marp-team/marp-cli@latest content/Aulas/*.md -o public/slides/
+          npx -y @marp-team/marp-cli@latest \
+            --input-dir content/Aulas/ \
+            --output public/slides/ \
+            --allow-local-files
           echo "Slides Marp gerados:"
           ls public/slides/
 
