@@ -33,16 +33,19 @@ jobs:
 
       - name: Build Marp Slides (Apresentações)
         run: |
-          npx -y @marp-team/marp-cli@latest -I content/Aulas/ -o content/Aulas/
+          mkdir -p public/slides
+          npx -y @marp-team/marp-cli@latest content/Aulas/*.md -o public/slides/
+          echo "Slides Marp gerados:"
+          ls public/slides/
 
-      - name: Build Quartz (Wiki + Slides)
+      - name: Build Quartz (Wiki)
         run: npx quartz build
 
-      - name: Mover slides para public/slides/
+      - name: Copiar Reveal.js de static/slides para public/slides
         run: |
           mkdir -p public/slides
-          find content/Aulas/ -name "*.html" -exec cp {} public/slides/ \;
-          echo "Slides gerados:"
+          cp static/slides/*.html public/slides/ 2>/dev/null || true
+          echo "Todos os slides em public/slides/:"
           ls public/slides/
 
       - name: Setup Pages
