@@ -7,11 +7,29 @@ tags:
   - etapa3
 marp: true
 theme: default
-class: lead
+style: |
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  :root { --color-bg:#0f1117; --color-accent:#7c6af7; --color-accent2:#4ade80; --font:'Inter',sans-serif; --mono:'JetBrains Mono',monospace; }
+  section { background:#0f1117; color:#e2e8f0; font-family:var(--font); font-size:28px; padding:60px 80px; }
+  h1 { font-size:2.2em; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.15; }
+  h2 { font-size:1.4em; font-weight:600; color:var(--color-accent); margin-bottom:0.4em; }
+  h3 { font-size:1em; font-weight:600; color:var(--color-accent2); text-transform:uppercase; letter-spacing:.08em; }
+  p, li { color:#94a3b8; }
+  strong { color:#fff; }
+  em { color:var(--color-accent); font-style:normal; }
+  code { font-family:var(--mono); background:#1e2130; color:#a5f3fc; padding:.1em .4em; border-radius:4px; font-size:.8em; }
+  pre { background:#1e2130; border-left:3px solid var(--color-accent); border-radius:8px; padding:1em 1.4em; }
+  pre code { background:none; color:#e2e8f0; font-size:.75em; line-height:1.7; }
+  blockquote { background:#1a1d27; border-left:4px solid var(--color-accent); border-radius:0 8px 8px 0; padding:.8em 1.2em; color:#94a3b8; font-style:normal; }
+  section.lead h1 { background:linear-gradient(135deg,#a78bfa,#7c6af7,#4ade80); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  section::after { color:#2e3347; font-size:.6em; }
+  table { width:100%; border-collapse:collapse; font-size:.85em; }
+  th { background:#252836; color:var(--color-accent); padding:.5em 1em; border-bottom:2px solid var(--color-accent); text-transform:uppercase; font-size:.8em; letter-spacing:.05em; }
+  td { padding:.45em 1em; border-bottom:1px solid #2e3347; }
 paginate: true
-backgroundColor:
+class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:06
+updated: 2026-08-31T23:14
 ---
 
 > [!TIP] Apresentação

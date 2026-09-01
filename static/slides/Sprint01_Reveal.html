@@ -3,118 +3,358 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sprint 01 — FalaQ</title>
+  <title>Sprint 01 — FalaQ · TPA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/moon.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
   <style>
-    .reveal h1 { font-size: 1.8em; }
-    .reveal h2 { font-size: 1.4em; color: #7EC8E3; }
-    .tag { background: #2a5f7f; padding: 4px 10px; border-radius: 4px; font-size: 0.6em; margin: 4px; display: inline-block; }
-    .ticket { border: 2px solid #e76f51; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
-    .concept { border: 2px solid #2a9d8f; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
-    code { font-size: 0.85em !important; }
+    /* ── Base ── */
+    :root {
+      --bg:       #0f1117;
+      --bg-alt:   #1a1d27;
+      --surface:  #252836;
+      --border:   #2e3347;
+      --accent:   #7c6af7;
+      --green:    #4ade80;
+      --cyan:     #22d3ee;
+      --text:     #e2e8f0;
+      --muted:    #64748b;
+      --font:     'Inter', system-ui, sans-serif;
+      --mono:     'JetBrains Mono', monospace;
+    }
+
+    .reveal-viewport { background: var(--bg); }
+
+    .reveal {
+      font-family: var(--font);
+      font-size: 36px;
+      color: var(--text);
+    }
+
+    /* ── Slides ── */
+    .reveal .slides section {
+      text-align: left;
+      padding: 0 2rem;
+    }
+
+    /* ── Headings ── */
+    .reveal h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 0.3em;
+    }
+
+    .reveal h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5em;
+      letter-spacing: -0.01em;
+    }
+
+    .reveal h3 {
+      font-size: 0.75em;
+      font-weight: 500;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6em;
+    }
+
+    /* ── Texto ── */
+    .reveal p { color: var(--muted); margin: 0.4em 0; font-size: 0.8em; }
+    .reveal li { color: var(--text); margin: 0.35em 0; font-size: 0.78em; line-height: 1.5; }
+    .reveal strong { color: #fff; font-weight: 600; }
+    .reveal em { color: var(--accent); font-style: normal; }
+
+    /* ── Code ── */
+    .reveal code {
+      font-family: var(--mono);
+      font-size: 0.72em;
+      background: var(--surface);
+      color: var(--cyan);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .reveal pre {
+      background: var(--surface) !important;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1em 1.4em;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      width: 100%;
+      margin: 0.8em 0;
+    }
+
+    .reveal pre code {
+      background: none !important;
+      border: none;
+      padding: 0;
+      color: var(--text);
+      font-size: 0.72em;
+      line-height: 1.75;
+    }
+
+    /* ── Ticket card ── */
+    .ticket {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-left: 4px solid #ef4444;
+      border-radius: 0 10px 10px 0;
+      padding: 0.9em 1.3em;
+      margin: 0.6em 0;
+      font-size: 0.78em;
+    }
+
+    .ticket .title {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1em;
+      margin-bottom: 0.2em;
+    }
+
+    .ticket .desc { color: var(--muted); }
+
+    /* ── Blockquote ── */
+    .reveal blockquote {
+      background: var(--bg-alt);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.8em 1.2em;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.78em;
+      width: 96%;
+      box-shadow: none;
+    }
+
+    /* ── Tag badge ── */
+    .badge {
+      display: inline-block;
+      background: rgba(124,106,247,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(124,106,247,0.3);
+      border-radius: 6px;
+      padding: 0.15em 0.6em;
+      font-size: 0.55em;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-right: 0.4em;
+      vertical-align: middle;
+    }
+
+    /* ── Cover slide ── */
+    .cover-slide {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+      background: radial-gradient(ellipse at 30% 60%, rgba(124,106,247,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(74,222,128,0.05) 0%, transparent 50%),
+                  var(--bg);
+    }
+
+    .cover-slide .label {
+      font-size: 0.45em;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5em;
+    }
+
+    .cover-slide h1 {
+      font-size: 2em;
+      background: linear-gradient(135deg, #a78bfa, #7c6af7 50%, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25em;
+    }
+
+    .cover-slide .subtitle {
+      font-size: 0.65em;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .cover-slide .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2em 0;
+      border-radius: 2px;
+    }
+
+    /* ── Número de slide ── */
+    .reveal .slide-number {
+      background: transparent;
+      color: var(--border);
+      font-family: var(--mono);
+      font-size: 0.55em;
+    }
+
+    /* ── Fragment ── */
+    .reveal .fragment { opacity: 0.2; }
+    .reveal .fragment.visible { opacity: 1; }
+
+    /* ── Highlight.js override ── */
+    .hljs { background: transparent !important; }
+    .hljs-keyword { color: #c084fc; }
+    .hljs-string { color: #86efac; }
+    .hljs-number { color: #fb923c; }
+    .hljs-comment { color: var(--muted); font-style: italic; }
+    .hljs-function { color: var(--cyan); }
+    .hljs-variable { color: var(--text); }
+    .hljs-title { color: #fde68a; }
+    .hljs-attr { color: #93c5fd; }
+
+    /* ── Progress bar ── */
+    .reveal .progress { height: 2px; color: var(--accent); }
   </style>
 </head>
 <body>
 <div class="reveal">
   <div class="slides">
 
-    <!-- SLIDE 1: Abertura -->
-    <section data-background-gradient="linear-gradient(135deg, #0d1b2a, #1b263b)">
-      <h1>🚀 FalaQ-Eu_T_3scuto</h1>
-      <h2>Sprint 01: Trolls e Travamentos</h2>
-      <p><em>Você foi contratado(a). O servidor está caindo. Boa sorte.</em></p>
+    <!-- SLIDE 1: Cover -->
+    <section class="cover-slide">
+      <div class="label">TPA · Cotemig · 3ª Etapa</div>
+      <h1>Sprint 01</h1>
+      <p class="subtitle">Trolls, Travamentos e a Arte de Não Quebrar Produção</p>
+      <div class="divider"></div>
+      <p style="font-size:0.55em; color:#475569;">
+        <span class="badge">Laravel 11</span>
+        <span class="badge">Validation</span>
+        <span class="badge">Pagination</span>
+        <span class="badge">FormRequest</span>
+      </p>
     </section>
 
-    <!-- SLIDE 2: Cenário -->
+    <!-- SLIDE 2: Cenário corporativo -->
     <section>
-      <h2>📣 Mensagem do CTO</h2>
-      <blockquote>
-        "O MVP foi um sucesso! 500 usuários simultâneos no evento de ontem.
-        Mas o servidor travou 3 vezes e alguém encheu o banco com lixo.
-        Vocês, como devs Júnior, precisam resolver isso hoje."
-      </blockquote>
+      <h3>Missão de hoje</h3>
+      <h1>O servidor sobreviveu ao lançamento. Mas mal.</h1>
+      <div style="margin-top:1.2em;">
+        <blockquote>
+          "O MVP foi um sucesso! 500 usuários simultâneos no evento. Mas o servidor <strong>travou 3 vezes</strong> e alguém encheu o banco com lixo. Vocês como devs Júnior precisam resolver isso <em>hoje</em>."
+          <br><br>— <strong>CEO da FalaQ</strong>
+        </blockquote>
+      </div>
     </section>
 
     <!-- SLIDE 3: Os Tickets -->
     <section>
-      <h2>🎫 Os Tickets Abertos</h2>
-      <div class="ticket">
-        <strong>#001 — Spam no Banco</strong><br/>
-        Perguntas vazias e com 1 letra estão chegando via API.
-        Precisamos bloquear na entrada.
+      <h3>Backlog de incidentes</h3>
+      <h2>2 Tickets Abertos. Prioridade máxima.</h2>
+
+      <div class="ticket" style="margin-top:1em;">
+        <div class="title">#001 — Spam no Banco de Dados</div>
+        <div class="desc">Perguntas vazias, com 1 letra e sem conteúdo estão chegando via API. <strong>Sem nenhum bloqueio na entrada.</strong></div>
       </div>
-      <div class="ticket" style="margin-top:1rem;">
-        <strong>#002 — Timeout na Listagem</strong><br/>
-        <code>Pergunta::all()</code> carrega 5.000 registros de uma vez.
-        O servidor trava em &lt;2s.
+
+      <div class="ticket">
+        <div class="title">#002 — Timeout na Listagem de Perguntas</div>
+        <div class="desc">Com 5.000 registros, a query <code>Pergunta::all()</code> trava o servidor em menos de 2 segundos.</div>
       </div>
     </section>
 
-    <!-- SLIDE 4: O Problema (código ruim) -->
+    <!-- SLIDE 4: O código culpado -->
     <section>
-      <h2>💀 O Código Culpado</h2>
-      <pre><code class="php" data-trim>
-// PerguntaController.php — Hoje
+      <h3>Root Cause Analysis</h3>
+      <h2>O Código que Derrubou a Produção</h2>
+
+      <pre><code class="php">// PerguntaController.php  —  versão atual em produção
 public function index()
 {
-    $perguntas = Pergunta::all(); // ← BOMBA RELÓGIO
+    // ⚠ Carrega TODOS os registros da tabela na memória
+    $perguntas = Pergunta::all();
+
     return view('perguntas.index', compact('perguntas'));
-}
-      </code></pre>
-      <p>O que acontece quando tem 5.000 perguntas?</p>
+}</code></pre>
+
+      <p style="margin-top:0.8em;">Com 5.000 perguntas → PHP aloca ~40MB por requisição. Com 10 usuários simultâneos → <strong>400MB</strong>. O servidor dorme.</p>
     </section>
 
-    <!-- SLIDE 5: Conceito Paginação -->
+    <!-- SLIDE 5: Fix Ticket 002 -->
     <section>
-      <h2>💡 Ticket #002: Paginação</h2>
-      <div class="concept">
-        <strong>Solução:</strong> <code>paginate(10)</code>
-      </div>
-      <pre><code class="php" data-trim>
-// PerguntaController.php — Depois
+      <h3>Ticket #002 · Fix</h3>
+      <h2>Paginação: entregue 10, não 5.000</h2>
+
+      <pre><code class="php">// PerguntaController.php  —  versão corrigida
 public function index(Request $request)
 {
     $perguntas = Pergunta::query()
+        ->when($request->search, fn($q, $v) =>
+            $q->where('texto', 'like', "%{$v}%")
+        )
         ->latest()
-        ->paginate(10);
+        ->paginate(10);   // ← banco devolve só 10 linhas
 
     return view('perguntas.index', compact('perguntas'));
-}
-      </code></pre>
-      <p>O banco devolve apenas 10 linhas. O servidor respira. ✅</p>
+}</code></pre>
+
+      <p>Status: <strong style="color:var(--green);">200 OK</strong> · Query time: <strong style="color:var(--green);">&lt; 5ms</strong> · Memória: <strong style="color:var(--green);">-97%</strong> 🎉</p>
     </section>
 
-    <!-- SLIDE 6: Conceito Validação -->
+    <!-- SLIDE 6: Fix Ticket 001 -->
     <section>
-      <h2>💡 Ticket #001: Validação</h2>
-      <div class="concept">
-        <strong>Solução:</strong> <code>php artisan make:request StorePerguntaRequest</code>
-      </div>
-      <pre><code class="php" data-trim>
-// StorePerguntaRequest.php
+      <h3>Ticket #001 · Fix</h3>
+      <h2>Validação: bloqueie o lixo na porta de entrada</h2>
+
+      <pre><code class="bash">php artisan make:request StorePerguntaRequest</code></pre>
+
+      <pre><code class="php">// App/Http/Requests/StorePerguntaRequest.php
 public function rules(): array
 {
     return [
-        'texto' => ['required', 'min:10', 'max:255'],
+        'texto'    => ['required', 'string', 'min:10', 'max:255'],
+        'evento_id'=> ['required', 'exists:eventos,id'],
     ];
 }
-      </code></pre>
-      <p>Status 422 para lixo. Status 201 para dados válidos. ✅</p>
+
+public function authorize(): bool { return true; }</code></pre>
+
+      <p>Dados inválidos → <strong style="color:#ef4444;">422 Unprocessable Entity</strong>. Dados válidos → <strong style="color:var(--green);">201 Created</strong>.</p>
     </section>
 
-    <!-- SLIDE 7: Missão -->
-    <section data-background-gradient="linear-gradient(135deg, #1a1a2e, #16213e)">
-      <h2>🎯 Sua Missão</h2>
-      <ol>
-        <li>Clone o repositório <code>falaq-base</code></li>
-        <li>Corrija o <code>PerguntaController</code> (Ticket #002)</li>
-        <li>Crie o <code>StorePerguntaRequest</code> (Ticket #001)</li>
-        <li>Faça o <code>git push</code> e submeta no LMS</li>
-      </ol>
-      <br/>
-      <p>⏰ Tempo: <strong>30 minutos</strong></p>
+    <!-- SLIDE 7: HTTP Status Codes -->
+    <section>
+      <h3>Teoria rápida</h3>
+      <h2>Status HTTP que você precisa saber agora</h2>
+
+      <table style="margin-top:0.8em; font-size:0.7em;">
+        <thead>
+          <tr><th>Código</th><th>Significado</th><th>Quando usar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code style="color:var(--green);">200</code></td><td>OK</td><td>Leitura bem-sucedida</td></tr>
+          <tr><td><code style="color:var(--green);">201</code></td><td>Created</td><td>Recurso criado com sucesso</td></tr>
+          <tr><td><code style="color:#fbbf24;">422</code></td><td>Unprocessable</td><td>Validação falhou</td></tr>
+          <tr><td><code style="color:#ef4444;">500</code></td><td>Server Error</td><td>Exceção não tratada</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 8: Missão -->
+    <section class="cover-slide">
+      <div class="label">Sua vez</div>
+      <h1>Missão</h1>
+      <div class="divider"></div>
+      <ul style="font-size:0.7em; list-style:none; padding:0; line-height:2.2; color:var(--text);">
+        <li>📦 Clone o repositório <code>falaq-base</code></li>
+        <li>⚡ Corrija o <code>PerguntaController</code> → Ticket #002</li>
+        <li>🛡️ Crie o <code>StorePerguntaRequest</code> → Ticket #001</li>
+        <li>🚀 <code>git push</code> e submeta o PR no LMS</li>
+      </ul>
+      <p style="margin-top:1em; font-size:0.55em; color:var(--muted);">⏱ Tempo: 30 minutos · Dúvidas? Wiki em <em>nato-re.github.io</em></p>
     </section>
 
   </div>
@@ -126,8 +366,13 @@ public function rules(): array
 <script>
   Reveal.initialize({
     hash: true,
-    transition: 'slide',
-    backgroundTransition: 'fade',
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'none',
+    slideNumber: 'c/t',
+    progress: true,
+    controls: false,
+    center: false,
     plugins: [ RevealHighlight, RevealNotes ]
   });
 </script>
