@@ -4,32 +4,40 @@ tags:
   - wiki
   - home
 created: 2026-08-31T20:12
-updated: 2026-08-31T21:13
+updated: 2026-08-31T23:06
 ---
 
-# 🎓 Wiki da Disciplina: TPA Laravel
+# 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
 
-Bem-vindo à base de conhecimento da disciplina. Aqui você encontrará os slides das aulas, a explicação dos conceitos teóricos e todo o código fonte construído durante o ano letivo.
-
-## 🗂️ Navegação por Etapas
-
-### [[Hub_Etapa_1|1ª Etapa: Fundamentos web e PHP]]
-- *Foco:* (Preencher depois)
-- [Acessar aulas e códigos da 1ª Etapa]
-
-### [[Hub_Etapa_2|2ª Etapa: Introdução ao Framework Laravel]]
-- *Foco:* (Preencher depois)
-- [Acessar aulas e códigos da 2ª Etapa]
-
-### [[Hub_Etapa_3|3ª Etapa: Projeto FalaQ-Eu_T_3scuto (PBL)]]
-- *Foco:* Manutenção de software, CI/CD, Relacionamentos Complexos e APIs.
-- Consulte a [[Aula 01: Onboarding e Manutenção (Validações e Paginação)]]
-- Consulte a Base de Código: [[Codigo_Base_FalaQ]]
+Bem-vindo! Aqui você encontra os materiais da disciplina. Navegue pelas aulas, consulte os conceitos e acesse as apresentações diretamente pelo link abaixo de cada aula.
 
 ---
-## 🧠 Dicionário de Conceitos Globais
-Não lembra de uma teoria? Acesse nosso glossário rápido:
-- [[Padrão MVC]]
-- [[HTTP Status Codes]]
-- [[Form Requests]]
-- [[Eloquent ORM]]
+
+## 📅 3ª Etapa: Projeto FalaQ-Eu_T_3scuto
+
+| Aula | Conteúdo | Material de Leitura | Slides |
+|------|----------|-------------------|--------|
+| 01 | Onboarding, Validações e Paginação | [[Aulas/Aula01_Slides_FalaQ\|📖 Leitura]] | [📽️ Marp](/slides/Aula01_Slides_FalaQ.html) · [🎞️ Reveal](/slides/Sprint01_Reveal.html) |
+| 02 | *Em breve* | — | — |
+
+---
+
+## 🧠 Conceitos Fundamentais
+
+Não lembra de um conceito? Clique para ir direto à explicação:
+
+- [[Conceitos/Model|Model (Eloquent ORM)]]
+- [[Conceitos/Controller|Controller]]
+- [[Conceitos/Blade|Blade (Templates)]]
+- [[Conceitos/Requisição|Requisição HTTP]]
+- [[Conceitos/Validação (FormRequest)|Validação com FormRequest]]
+- [[Conceitos/Paginação|Paginação]]
+- [[Conceitos/Filtro (where)|Filtros (where)]]
+- [[Conceitos/Ordenação (orderBy)|Ordenação (orderBy)]]
+
+---
+
+## 📚 Etapas Anteriores
+
+- [[Hub_Etapa_1|1ª Etapa: Fundamentos Web e PHP]]
+- [[Hub_Etapa_2|2ª Etapa: Introdução ao Framework Laravel]]

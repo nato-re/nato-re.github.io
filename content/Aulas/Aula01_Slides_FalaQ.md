@@ -11,8 +11,13 @@ class: lead
 paginate: true
 backgroundColor:
 created: 2026-08-31T19:02
-updated: 2026-08-31T21:13
+updated: 2026-08-31T23:06
 ---
+
+> [!TIP] Apresentação
+> 📽️ **[Abrir Slides (Marp)](/slides/Aula01_Slides_FalaQ.html)** — Versão para projeção em sala de aula.
+> 🎞️ **[Abrir Slides (Reveal.js)](/slides/Sprint01_Reveal.html)** — Versão com animações e tela cheia.
+
 
 # 🚀 Bem-vindos à FalaQ-Eu_T_3scuto!
 **Onboarding de Desenvolvedores Backend Júnior**
