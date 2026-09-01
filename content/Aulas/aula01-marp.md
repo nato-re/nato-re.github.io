@@ -29,12 +29,12 @@ style: |
 paginate: true
 class: lead
 created: 2026-08-31T19:02
-updated: 2026-08-31T23:25
+updated: 2026-08-31T23:53
 ---
 
 > [!TIP] Apresentação
-> 📽️ **[Abrir Slides (Marp)](/slides/aula01-marp.html)** — Versão para projeção em sala de aula.
-> 🎞️ **[Abrir Slides (Reveal.js)](/slides/aula01-reveal.html)** — Versão com animações e tela cheia.
+> 📽️ **<a href="/slides/aula01-marp.html" data-router-ignore target="_blank">Abrir Slides (Marp)</a>** — Versão para projeção em sala de aula.
+> 🎞️ **<a href="/slides/aula01-reveal.html" data-router-ignore target="_blank">Abrir Slides (Reveal.js)</a>** — Versão com animações e tela cheia.
 
 
 # 🚀 Bem-vindos à FalaQ-Eu_T_3scuto!
