@@ -36,8 +36,8 @@ jobs:
 
       - name: Build Marp Slides (Apresentações)
         run: |
-          mkdir -p public/slides
-          npx -y @marp-team/marp-cli@latest -I content/Aulas/ -o public/slides/
+          mkdir -p static/slides
+          npx -y @marp-team/marp-cli@latest -I content/Aulas/ -o static/slides/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -1,99 +1,17 @@
 {
-	"nodes": [
-		{
-			"id": "intro_node",
-			"type": "text",
-			"text": "# 🚀 Sprint 1\n**FalaQ-Eu_T_3scuto**\n\nBem-vindos ao Onboarding de Devs Júnior. Nossa missão hoje é estabilizar o MVP da empresa.",
-			"x": -600,
-			"y": 100,
-			"width": 300,
-			"height": 200,
-			"color": "1"
-		},
-		{
-			"id": "problema_node",
-			"type": "text",
-			"text": "## 🚨 O Caos Instalado\n\nTemos dois tickets graves abertos pelos clientes na plataforma.",
-			"x": -150,
-			"y": 100,
-			"width": 250,
-			"height": 200,
-			"color": "3"
-		},
-		{
-			"id": "ticket1",
-			"type": "text",
-			"text": "### Ticket #001\nSpam e lixo no banco de dados. Precisamos de segurança na API.",
-			"x": 200,
-			"y": -50,
-			"width": 250,
-			"height": 150,
-			"color": "6"
-		},
-		{
-			"id": "ticket2",
-			"type": "text",
-			"text": "### Ticket #002\nO servidor trava ao tentar buscar 5.000 perguntas de uma vez.",
-			"x": 200,
-			"y": 250,
-			"width": 250,
-			"height": 150,
-			"color": "6"
-		},
-		{
-			"id": "file_validacao",
-			"type": "file",
-			"file": "Conceitos/Validação (FormRequest).md",
-			"x": 550,
-			"y": -150,
-			"width": 400,
-			"height": 300
-		},
-		{
-			"id": "file_paginacao",
-			"type": "file",
-			"file": "Conceitos/Paginação.md",
-			"x": 550,
-			"y": 200,
-			"width": 400,
-			"height": 300
-		}
+	"nodes":[
+		{"id":"problema_node","type":"text","text":"## 🚨 O Caos Instalado\n\nTemos dois tickets graves abertos pelos clientes na plataforma.","x":-150,"y":100,"width":250,"height":200,"color":"3"},
+		{"id":"ticket1","type":"text","text":"### Ticket #001\nSpam e lixo no banco de dados. Precisamos de segurança na API.","x":200,"y":-50,"width":250,"height":150,"color":"6"},
+		{"id":"ticket2","type":"text","text":"### Ticket #002\nO servidor trava ao tentar buscar 5.000 perguntas de uma vez.","x":200,"y":250,"width":250,"height":150,"color":"6"},
+		{"id":"file_validacao","type":"file","file":"Conceitos/Validação (FormRequest).md","x":550,"y":-150,"width":400,"height":300},
+		{"id":"file_paginacao","type":"file","file":"Conceitos/Paginação.md","x":550,"y":200,"width":400,"height":300},
+		{"id":"intro_node","type":"text","text":"# 🚀 Sprint 1\n**FalaQ-Eu_T_3scuto**\n\nBem-vindos ao Onboarding de Devs Júnior. Nossa missão hoje é estabilizar o MVP da empresa.","x":-620,"y":100,"width":300,"height":200,"color":"1"}
 	],
-	"edges": [
-		{
-			"id": "edge1",
-			"fromNode": "intro_node",
-			"fromSide": "right",
-			"toNode": "problema_node",
-			"toSide": "left"
-		},
-		{
-			"id": "edge2",
-			"fromNode": "problema_node",
-			"fromSide": "right",
-			"toNode": "ticket1",
-			"toSide": "left"
-		},
-		{
-			"id": "edge3",
-			"fromNode": "problema_node",
-			"fromSide": "right",
-			"toNode": "ticket2",
-			"toSide": "left"
-		},
-		{
-			"id": "edge4",
-			"fromNode": "ticket1",
-			"fromSide": "right",
-			"toNode": "file_validacao",
-			"toSide": "left"
-		},
-		{
-			"id": "edge5",
-			"fromNode": "ticket2",
-			"fromSide": "right",
-			"toNode": "file_paginacao",
-			"toSide": "left"
-		}
+	"edges":[
+		{"id":"edge1","fromNode":"intro_node","fromSide":"right","toNode":"problema_node","toSide":"left"},
+		{"id":"edge2","fromNode":"problema_node","fromSide":"right","toNode":"ticket1","toSide":"left"},
+		{"id":"edge3","fromNode":"problema_node","fromSide":"right","toNode":"ticket2","toSide":"left"},
+		{"id":"edge4","fromNode":"ticket1","fromSide":"right","toNode":"file_validacao","toSide":"left"},
+		{"id":"edge5","fromNode":"ticket2","fromSide":"right","toNode":"file_paginacao","toSide":"left"}
 	]
 }
