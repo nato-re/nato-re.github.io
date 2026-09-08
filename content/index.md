@@ -18,7 +18,8 @@ Bem-vindo! Aqui você encontra os materiais da disciplina. Navegue pelas aulas, 
 | Aula | Conteúdo | Material de Leitura | Slides | Atividade (Alunos) | Gabarito (Prof / Outras Turmas) |
 |------|----------|-------------------|--------|--------------------|---------------------------------|
 | 01 | Onboarding, Validações e Paginação | [[Aulas/aula01-marp\|📖 Leitura]] | <a href="/slides/aula01-marp.html" data-router-ignore target="_blank">📽️ Marp</a> · <a href="/slides/aula01-reveal.html" data-router-ignore target="_blank">🎞️ Reveal</a> | [[Atividades/Atividade_Sprint01\|🎯 Atividade (3B1)]] | [[Atividade_Sprint01_Gabarito\|🔑 Gabarito Resolvido]] |
-| 02 | *Em breve* | — | — | — | — |
+| 02 | Relacionamentos N:1 e Eager Loading | [[Aulas/aula02-marp\|📖 Leitura]] | <a href="/slides/aula02-marp.html" data-router-ignore target="_blank">📽️ Marp</a> | [[Atividades/Atividade_Sprint02\|🎯 Atividade (3B1)]] | [[Atividades/Atividade_Sprint02_Gabarito\|🔑 Gabarito Resolvido]] |
+| 03 | *Em breve* | — | — | — | — |
 
 ---
 
@@ -34,6 +35,8 @@ Não lembra de um conceito? Clique para ir direto à explicação:
 - [[Conceitos/Paginação|Paginação]]
 - [[Conceitos/Filtro (where)|Filtros (where)]]
 - [[Conceitos/Ordenação (orderBy)|Ordenação (orderBy)]]
+- [[Conceitos/Relacionamento (N-1)|Relacionamentos N:1 (belongsTo & hasMany)]]
+- [[Conceitos/Eager Loading (with)|O Problema N+1 e Eager Loading (with)]]
 
 ---
 
