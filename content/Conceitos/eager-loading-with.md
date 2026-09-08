@@ -1,11 +1,16 @@
 ---
+title: Eager Loading (with) e o Problema N+1
+aliases:
+  - Eager Loading (with)
+  - Eager Loading
+  - Problema N+1
 tags:
   - conceito
   - laravel
   - performance
   - eager-loading
 created: 2026-09-08T07:33:00
-updated: 2026-09-08T07:33:00
+updated: 2026-09-08T11:07
 ---
 
 # O Problema N+1 e Eager Loading (`with`)

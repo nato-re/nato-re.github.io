@@ -4,7 +4,7 @@ tags:
   - etapa2
   - historico
 created: 2026-08-31T20:12
-updated: 2026-08-31T21:13
+updated: 2026-09-08T11:06
 ---
 
 # 2ª Etapa: Hub de Conteúdos

@@ -1,10 +1,13 @@
 ---
+title: Controllers no Laravel
+aliases:
+  - Controller
 tags:
   - conceito
   - laravel
   - mvc
 created: 2026-08-31T20:49
-updated: 2026-08-31T21:13
+updated: 2026-09-08T11:07
 ---
 # Controller
 

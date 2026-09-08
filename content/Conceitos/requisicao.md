@@ -1,10 +1,14 @@
 ---
+title: Requisições HTTP e Status Codes
+aliases:
+  - Requisição
+  - Requisicao
 tags:
   - conceito
   - http
   - laravel
 created: 2026-08-31T20:49
-updated: 2026-08-31T21:13
+updated: 2026-09-08T11:07
 ---
 # Requisição (Request)
 

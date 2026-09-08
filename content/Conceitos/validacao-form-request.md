@@ -1,11 +1,15 @@
 ---
+title: Validação com FormRequest
+aliases:
+  - Validação (FormRequest)
+  - Validacao (FormRequest)
 tags:
   - conceito
   - laravel
   - seguranca
   - http
 created: 2026-08-31T20:17
-updated: 2026-08-31T21:13
+updated: 2026-09-08T11:07
 ---
 # Validação e Form Requests
 

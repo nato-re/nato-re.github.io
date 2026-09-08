@@ -1,11 +1,15 @@
 ---
+title: Relacionamentos N:1 no Eloquent ORM
+aliases:
+  - Relacionamento (N-1)
+  - Relacionamentos N:1
 tags:
   - conceito
   - laravel
   - eloquent
   - relacionamentos
 created: 2026-09-08T07:33:00
-updated: 2026-09-08T07:33:00
+updated: 2026-09-08T11:07
 ---
 
 # Relacionamento N:1 no Eloquent (`belongsTo` e `hasMany`)
