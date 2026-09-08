@@ -17,13 +17,10 @@ tags:
   - etapa3
   - cotemig/3b1
 created: 2026-08-31T20:35
-updated: 2026-09-01T09:10
+updated: 2026-09-01T11:09
 ---
 
 # 🚀 [Sprint 01] Estabilização do MVP: Trolls e Travamentos
-
-> 📢 **Publicação Agendada:** Terça-feira (01/09) para a **Turma 3B1**.  
-> 💡 *Turmas anteriores:* Caso já tenha concluído a atividade em sala, consulte o [[Atividade_Sprint01_Gabarito|🔑 Gabarito Oficial]].
 
 ---
 
@@ -55,7 +52,7 @@ O sistema tenta carregar 5.000 perguntas de uma vez, congelando a memória do se
 - [ ] O endpoint rejeita envios vazios retornando status **HTTP 422**.
 - [ ] O Controller usa paginação encadeada (sem `all()` ou `get()`).
 - [ ] A interface exibe os botões de paginação (`links()`).
-- [ ] Submissão do link do PR no LMS até 08/09 às 23:59.
+- [ ] Submissão do link Classroom.
 
 ---
 
