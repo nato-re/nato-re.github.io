@@ -5,8 +5,9 @@ tags:
   - professor
   - laravel
   - etapa3
+draft: true
 created: 2026-09-08T07:33:00
-updated: 2026-09-08T07:33:00
+updated: 2026-09-08T10:16
 ---
 
 # 🔑 Gabarito Resolvido: Sprint 02 (Relacionamentos & Eager Loading)
