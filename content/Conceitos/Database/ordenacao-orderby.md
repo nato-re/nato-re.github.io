@@ -26,3 +26,7 @@ O Laravel oferece um atalho de sintaxe incrível para ordenar pela data de cria�
 ```php
 $perguntas = Pergunta::latest()->get();
 ```
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Ordering, Grouping, Limit, and Offset](https://laravel.com/docs/queries#ordering-grouping-limit-and-offset)

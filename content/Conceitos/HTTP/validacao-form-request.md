@@ -28,3 +28,7 @@ public function rules(): array
 
 ### O Status 422
 Se os dados enviados falharem nestas regras, o Laravel automaticamente interrompe a requisição e devolve um [[HTTP Status Codes|Status 422 Unprocessable Content]]. Se o usuário estiver usando um formulário web tradicional, ele será redirecionado de volta com os erros gravados na Sessão (Flash Data).
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Form Request Validation](https://laravel.com/docs/validation#form-request-validation)

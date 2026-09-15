@@ -21,3 +21,7 @@ $perguntas = Pergunta::where('evento_id', 5)->get();
 ```
 
 Sempre que utilizar o `where`, lembre-se de que ele retorna um *Query Builder*. Para de fato buscar os dados, você deve encadear comandos como `->get()`, `->first()`, ou encadear com uma [[Paginação|->paginate()]].
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Where Clauses](https://laravel.com/docs/queries#where-clauses)

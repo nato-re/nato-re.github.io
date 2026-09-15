@@ -65,3 +65,7 @@ Route::middleware(['auth'])->group(function () {
 - `auth`: Verifica se o usuário está logado usando a [[Seguranca/auth-facade|Auth Facade]]. Se não estiver, redireciona para a rota nomeada `login`.
 - `guest`: O oposto do `auth`. Só deixa passar quem **não** está logado (útil para a tela de login/registro).
 - `verified`: Verifica se o usuário já confirmou seu e-mail.
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Middleware](https://laravel.com/docs/middleware)

@@ -29,3 +29,7 @@ public function show($id) {
     return view('eventos.show', compact('evento')); 
 }
 ```
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Controllers](https://laravel.com/docs/controllers)

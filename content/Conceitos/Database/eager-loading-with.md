@@ -43,3 +43,7 @@ O Laravel executa apenas **2 consultas SQL rápidas**:
 2. `SELECT * FROM users WHERE id IN (2, 5, 9, 14);`
 
 **Resultado:** A página carrega instantaneamente e a CPU do servidor permanece tranquila!
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Eager Loading](https://laravel.com/docs/eloquent-relationships#eager-loading)

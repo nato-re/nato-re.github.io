@@ -20,3 +20,8 @@ No Laravel, nós não manipulamos variáveis puras como o antigo `$_POST` do PHP
 A regra número 1 do backend é: **Nunca confie no input do usuário**. 
 
 Antes da requisição sequer tocar na lógica do seu [[Controller]] ou do seu [[Model]], ela **deve** ser inspecionada. Se os dados da requisição falharem na inspeção de uma classe de [[Validação (FormRequest)]], o Laravel devolve um [[HTTP Status Codes|Status 422]] e a requisição é cancelada.
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: HTTP Requests](https://laravel.com/docs/requests)
+- [Laravel Docs: HTTP Responses](https://laravel.com/docs/responses)

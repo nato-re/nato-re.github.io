@@ -19,3 +19,7 @@ $perguntas = Pergunta::all();
 ```
 
 **Retroativo:** Este conceito foi introduzido nas etapas iniciais e é a base para fazermos [[Filtro (where)]], [[Ordenação (orderBy)]] e [[Paginação]].
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Eloquent ORM](https://laravel.com/docs/eloquent)

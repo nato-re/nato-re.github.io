@@ -52,3 +52,7 @@ A grande vantagem do Blade é que ele é compilado para PHP puro e guardado em c
    - `$evento` traz o título do evento e metadados.
    - `$perguntas` é uma instância de `LengthAwarePaginator` contendo os 10 itens da página atual.
 3. **Renderização dos Links:** Ao chamar `{{ $perguntas->links() }}`, o Laravel gera automaticamente os botões HTML `<nav>` com os parâmetros de URL (`?page=1`, `?page=2`) mantendo filtros existentes.
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Blade Templates](https://laravel.com/docs/blade)

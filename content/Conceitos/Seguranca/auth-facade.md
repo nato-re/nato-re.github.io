@@ -73,3 +73,7 @@ Auth::logout();
 
 ## Como interage com os Middlewares?
 Quando você usa o [[HTTP/middleware|Middleware `auth`]] nas suas rotas, por trás dos panos o Laravel está executando o `Auth::check()` para decidir se deixa a requisição passar ou não.
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Authentication](https://laravel.com/docs/authentication)

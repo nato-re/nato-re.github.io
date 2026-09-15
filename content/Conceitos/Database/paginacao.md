@@ -26,3 +26,7 @@ Para que os botões de "Próximo" e "Anterior" apareçam no HTML, basta chamar o
 ```html
 {{ $perguntas->links() }}
 ```
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Database Pagination](https://laravel.com/docs/pagination)

@@ -55,3 +55,7 @@ Podemos navegar dinamicamente como uma propriedade do objeto:
 ```
 
 > **Atenção:** Ao iterar sobre perguntas exibindo o usuário, lembre-se de usar [[Conceitos/Eager Loading (with)|Eager Loading (with)]] para evitar sobrecarregar o banco com dezenas de consultas repetidas!
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: One To Many Relationships](https://laravel.com/docs/eloquent-relationships#one-to-many)

@@ -76,3 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/eventos', [EventoController::class, 'store'])->name('eventos.store');
 });
 ```
+
+
+## 📖 Documentação Oficial
+- [Laravel Docs: Routing](https://laravel.com/docs/routing)
