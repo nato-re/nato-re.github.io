@@ -10,7 +10,7 @@ tags:
   - performance
   - eager-loading
 created: 2026-09-08T07:33:00
-updated: 2026-09-08T11:07
+updated: 2026-09-14T22:26
 ---
 
 # O Problema N+1 e Eager Loading (`with`)

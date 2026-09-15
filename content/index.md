@@ -6,7 +6,7 @@ tags:
   - cotemig
   - laravel
 created: 2026-08-31T20:12:00
-updated: 2026-09-08T11:07
+updated: 2026-09-14T22:26
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
@@ -34,18 +34,18 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 Consulte os artigos atômicos para tirar dúvidas de sintaxe e arquitetura:
 
 ### 🗄️ Banco de Dados & Eloquent ORM
-- [[Conceitos/model|Model (Eloquent ORM)]] — Definição de tabelas, atributos e convenções
-- [[Conceitos/relacionamento-n-1|Relacionamentos N:1]] — Uso de `belongsTo` e `hasMany` entre tabelas
-- [[Conceitos/eager-loading-with|Eager Loading com with()]] — Detecção e eliminação do problema $N+1$
-- [[Conceitos/filtro-where|Filtros com where()]] — Filtragem condicional encadeada
-- [[Conceitos/ordenacao-orderby|Ordenação (orderBy / latest)]] — Ordenação de resultados
-- [[Conceitos/paginacao|Paginação de Dados]] — Navegação eficiente sem sobrecarregar a memória
+- [[Conceitos/Database/model|Model (Eloquent ORM)]] — Definição de tabelas, atributos e convenções
+- [[Conceitos/Database/relacionamento-n-1|Relacionamentos N:1]] — Uso de `belongsTo` e `hasMany` entre tabelas
+- [[Conceitos/Database/eager-loading-with|Eager Loading com with()]] — Detecção e eliminação do problema $N+1$
+- [[Conceitos/Database/filtro-where|Filtros com where()]] — Filtragem condicional encadeada
+- [[Conceitos/Database/ordenacao-orderby|Ordenação (orderBy / latest)]] — Ordenação de resultados
+- [[Conceitos/Database/paginacao|Paginação de Dados]] — Navegação eficiente sem sobrecarregar a memória
 
 ### 🌐 Arquitetura Web & MVC
-- [[Conceitos/controller|Controllers no Laravel]] — Orquestração de regras de negócio
-- [[Conceitos/validacao-form-request|Validação com FormRequest]] — Proteção de dados e HTTP 422
-- [[Conceitos/requisicao|Requisições HTTP]] — Ciclo de vida da requisição e status codes
-- [[Conceitos/blade|Blade Templating]] — Renderização dinâmica de views HTML
+- [[Conceitos/HTTP/controller|Controllers no Laravel]] — Orquestração de regras de negócio
+- [[Conceitos/HTTP/validacao-form-request|Validação com FormRequest]] — Proteção de dados e HTTP 422
+- [[Conceitos/HTTP/requisicao|Requisições HTTP]] — Ciclo de vida da requisição e status codes
+- [[Conceitos/Frontend/blade|Blade Templating]] — Renderização dinâmica de views HTML
 
 ---
 

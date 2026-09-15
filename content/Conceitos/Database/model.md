@@ -7,7 +7,7 @@ tags:
   - laravel
   - mvc
 created: 2026-08-31T20:17
-updated: 2026-09-08T11:07
+updated: 2026-09-14T22:26
 ---
 # Model
 

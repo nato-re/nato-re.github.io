@@ -17,7 +17,7 @@ tags:
   - eager-loading
   - etapa3
 created: 2026-09-08T07:33:00
-updated: 2026-09-08T11:07
+updated: 2026-09-14T22:26
 ---
 
 # 🚀 [Sprint 02] Autoria de Perguntas & Otimização de Performance (N+1)
@@ -56,7 +56,7 @@ Elimine o terrível **Problema N+1**:
 ---
 
 ## 📚 Material de Apoio na Wiki
-- [[Conceitos/relacionamento-n-1|Relacionamentos N:1 no Eloquent ORM]]
-- [[Conceitos/eager-loading-with|O Problema N+1 e Eager Loading (with)]]
-- [[Conceitos/paginacao|Paginação no Eloquent]]
+- [[Conceitos/Database/relacionamento-n-1|Relacionamentos N:1 no Eloquent ORM]]
+- [[Conceitos/Database/eager-loading-with|O Problema N+1 e Eager Loading (with)]]
+- [[Conceitos/Database/paginacao|Paginação no Eloquent]]
 - [[Aulas/aula02-marp|📖 Roteiro e Slides da Aula 02]]

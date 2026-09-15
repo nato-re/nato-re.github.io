@@ -17,7 +17,7 @@ tags:
   - etapa3
   - cotemig/3b1
 created: 2026-08-31T20:35
-updated: 2026-09-08T11:07
+updated: 2026-09-14T22:26
 ---
 
 # 🚀 [Sprint 01] Estabilização do MVP: Trolls e Travamentos
@@ -57,8 +57,8 @@ O sistema tenta carregar 5.000 perguntas de uma vez, congelando a memória do se
 ---
 
 ## 📚 Material de Apoio na Wiki
-- [[Conceitos/requisicao|HTTP Status Codes]]
-- [[Conceitos/validacao-form-request|Validação com FormRequest]]
-- [[Conceitos/paginacao|Paginação no Eloquent]]
-- [[Conceitos/filtro-where|Filtros (where)]]
+- [[Conceitos/HTTP/requisicao|HTTP Status Codes]]
+- [[Conceitos/HTTP/validacao-form-request|Validação com FormRequest]]
+- [[Conceitos/Database/paginacao|Paginação no Eloquent]]
+- [[Conceitos/Database/filtro-where|Filtros (where)]]
 - [[Aulas/aula01-marp|📖 Roteiro da Aula 01]]
