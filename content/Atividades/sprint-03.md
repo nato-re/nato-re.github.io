@@ -16,7 +16,7 @@ tags:
   - middleware
   - etapa3
 created: 2026-09-14T22:15:00
-updated: 2026-09-22T00:36
+updated: 2026-09-22T01:05
 ---
 
 # 🚀 [Sprint 03] Área VIP: Autenticação e Visibilidade
@@ -59,4 +59,4 @@ O organizador solicitou que as perguntas enviadas pelos participantes fiquem "pe
 - [[HTTP/rotas|Entendendo Rotas e Agrupamentos]]
 - [[HTTP/middleware|Como aplicar Middlewares de Segurança]]
 - [[Seguranca/auth-facade|Trabalhando com a Auth Facade]]
-- [[Aulas/aula03-marp|📖 Roteiro e Slides da Aula 03]]
+- [[Aulas/aula03|📖 Roteiro e Slides da Aula 03]]

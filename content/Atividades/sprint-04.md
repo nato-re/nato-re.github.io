@@ -17,7 +17,7 @@ tags:
   - error
   - validacao
 created: 2026-09-22T00:00:00
-updated: 2026-09-22T00:37
+updated: 2026-09-22T01:05
 ---
 
 # 🚀 [Sprint 04] Identidade Visual e Feedback de Validação
@@ -60,4 +60,4 @@ Acesse a branch `v4.0-auth-tailwind`. Você tem dois chamados críticos de Front
 - [[Frontend/blade-diretivas-error|Como capturar falhas com @error e old()]]
 - [[HTTP/sessoes-e-cookies|Como os erros sobrevivem ao redirecionamento?]]
 - [[Seguranca/hash-senhas|Por que fazemos Hash de Senhas?]]
-- [[Aulas/aula04-marp|📖 Slides da Aula 04]]
+- [[Aulas/aula04|📖 Slides da Aula 04]]

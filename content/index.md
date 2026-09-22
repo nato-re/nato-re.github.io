@@ -6,7 +6,7 @@ tags:
   - cotemig
   - laravel
 created: 2026-08-31T20:12:00
-updated: 2026-09-22T01:04
+updated: 2026-09-22T01:05
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
@@ -21,10 +21,10 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 
 | Aula | Tema da Aula | Roteiro de Leitura | Apresentação | Atividade Prática |
 | :---: | :--- | :---: | :---: | :---: |
-| **01** | Onboarding no MVP, FormRequests e Paginação | [[Aulas/aula01-marp\|📖 Guia]] | <a href="/slides/aula01-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-01\|🎯 Sprint 01]] |
-| **02** | Relacionamentos N:1 e Otimização Eager Loading | [[Aulas/aula02-marp\|📖 Guia]] | <a href="/slides/aula02-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-02\|🎯 Sprint 02]] |
-| **03** | Área VIP: Autenticação Manual e Middlewares | [[Aulas/aula03-marp\|📖 Guia]] | <a href="/slides/aula03-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-03\|🎯 Sprint 03]] |
-| **04** | Revisão de Auth, Tailwind CSS e Validação Visual | [[Aulas/aula04-marp\|📖 Guia]] | <a href="/slides/aula04-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04]] |
+| **01** | Onboarding no MVP, FormRequests e Paginação | [[Aulas/aula01\|📖 Guia]] | <a href="/slides/aula01.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-01\|🎯 Sprint 01]] |
+| **02** | Relacionamentos N:1 e Otimização Eager Loading | [[Aulas/aula02\|📖 Guia]] | <a href="/slides/aula02.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-02\|🎯 Sprint 02]] |
+| **03** | Área VIP: Autenticação Manual e Middlewares | [[Aulas/aula03\|📖 Guia]] | <a href="/slides/aula03.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-03\|🎯 Sprint 03]] |
+| **04** | Revisão de Auth, Tailwind CSS e Validação Visual | [[Aulas/aula04\|📖 Guia]] | <a href="/slides/aula04.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04]] |
 
 👉 [[Etapas/etapa-3|Acessar o Hub Completo da 3ª Etapa com Repositório e Instruções de Setup]]
 

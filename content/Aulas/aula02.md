@@ -29,7 +29,7 @@ style: |
   td { padding:.45em 1em; border-bottom:1px solid #2e3347; }
 paginate: true
 created: 2026-09-08T08:35
-updated: 2026-09-22T00:36
+updated: 2026-09-22T01:05
 ---
 
 <!-- _class: lead -->
