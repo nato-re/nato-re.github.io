@@ -16,7 +16,7 @@ tags:
   - middleware
   - etapa3
 created: 2026-09-14T22:15:00
-updated: 2026-09-14T22:18
+updated: 2026-09-22T00:36
 ---
 
 # 🚀 [Sprint 03] Área VIP: Autenticação e Visibilidade

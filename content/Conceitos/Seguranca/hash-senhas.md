@@ -1,6 +1,12 @@
 ---
 title: Hash de Senhas
-tags: [conceitos, seguranca, hash, criptografia]
+tags:
+  - conceitos
+  - seguranca
+  - hash
+  - criptografia
+created: 2026-09-22T00:37
+updated: 2026-09-22T00:37
 ---
 
 # 🔒 Hash de Senhas

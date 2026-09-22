@@ -1,6 +1,12 @@
 ---
 title: Diretivas Blade para Formulários (@error e old)
-tags: [conceitos, frontend, blade, validacao]
+tags:
+  - conceitos
+  - frontend
+  - blade
+  - validacao
+created: 2026-09-22T00:37
+updated: 2026-09-22T00:37
 ---
 
 # ⚠️ Diretivas Blade para Validação de Forms

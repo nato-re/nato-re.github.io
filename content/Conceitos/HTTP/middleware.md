@@ -6,7 +6,7 @@ tags:
   - middleware
   - seguranca
 created: 2026-09-14T22:17
-updated: 2026-09-14T22:17
+updated: 2026-09-22T00:36
 ---
 
 # 🛡️ Middlewares HTTP

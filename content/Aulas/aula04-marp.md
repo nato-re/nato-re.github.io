@@ -11,7 +11,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-22T00:37
-updated: 2026-09-22T00:37
+updated: 2026-09-22T01:00
 ---
 
 # 🚀 Aula 04: Revisão de Auth, UI & Feedbacks
@@ -33,9 +33,10 @@ Hoje vamos focar em três pilares:
 
 ## 🎨 Bootstrap vs Tailwind
 
-No passado, usávamos frameworks baseados em componentes (ex: `<div class="card">`).
+Não existe um "melhor", mas sim paradigmas diferentes de design:
 
-O **Tailwind CSS** é baseado em **Classes Utilitárias**. Você constrói o design direto no HTML, combinando pequenas peças.
+- **Bootstrap (Componentes):** Usa classes prontas para objetos inteiros (ex: `<div class="card">`). Traz agilidade, mas o design final fica "com a cara do Bootstrap".
+- **Tailwind (Utilitários):** Fornece blocos de montar (ex: `<div class="p-4 shadow">`). Exige mais digitação, mas permite total flexibilidade visual.
 
 ```html
 <!-- Exemplo Tailwind -->
@@ -43,7 +44,6 @@ O **Tailwind CSS** é baseado em **Classes Utilitárias**. Você constrói o des
   Salvar
 </button>
 ```
-*Não precisamos abrir arquivos `.css`!*
 
 ---
 

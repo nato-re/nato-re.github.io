@@ -9,7 +9,7 @@ tags:
   - seguranca
   - http
 created: 2026-08-31T20:17
-updated: 2026-09-14T22:26
+updated: 2026-09-22T00:36
 ---
 # Validação e Form Requests
 

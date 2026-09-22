@@ -9,7 +9,7 @@ tags:
   - frontend
   - mvc
 created: 2026-08-31T20:49
-updated: 2026-09-14T22:26
+updated: 2026-09-22T00:36
 ---
 # Blade (Template Engine)
 

@@ -5,7 +5,7 @@ tags:
   - seguranca
   - autenticacao
 created: 2026-09-14T22:18
-updated: 2026-09-14T22:18
+updated: 2026-09-22T00:36
 ---
 
 # 🔑 Auth Facade

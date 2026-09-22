@@ -5,7 +5,7 @@ tags:
   - http
   - rotas
 created: 2026-09-14T22:16
-updated: 2026-09-14T22:16
+updated: 2026-09-22T00:36
 ---
 
 # 🛣️ Rotas Web no Laravel

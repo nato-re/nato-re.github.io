@@ -17,7 +17,7 @@ tags:
   - etapa3
   - cotemig/3b1
 created: 2026-08-31T20:35
-updated: 2026-09-14T22:26
+updated: 2026-09-22T00:36
 ---
 
 # 🚀 [Sprint 01] Estabilização do MVP: Trolls e Travamentos

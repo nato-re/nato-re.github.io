@@ -11,7 +11,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-14T22:19
-updated: 2026-09-14T22:19
+updated: 2026-09-22T00:36
 ---
 
 # 🚀 Aula 03: Autenticação & Status Público

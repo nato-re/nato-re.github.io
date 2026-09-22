@@ -6,7 +6,7 @@ tags:
   - cotemig
   - laravel
 created: 2026-08-31T20:12:00
-updated: 2026-09-14T22:26
+updated: 2026-09-22T00:36
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel

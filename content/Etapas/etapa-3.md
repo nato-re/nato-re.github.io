@@ -6,7 +6,7 @@ tags:
   - asklive
   - falaq
 created: 2026-09-08T11:00:00
-updated: 2026-09-08T11:06
+updated: 2026-09-22T00:36
 ---
 
 # 🚀 3ª Etapa: APIs REST & Otimização de Performance

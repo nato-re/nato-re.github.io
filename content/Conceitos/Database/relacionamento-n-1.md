@@ -9,7 +9,7 @@ tags:
   - eloquent
   - relacionamentos
 created: 2026-09-08T07:33:00
-updated: 2026-09-14T22:26
+updated: 2026-09-22T00:36
 ---
 
 # Relacionamento N:1 no Eloquent (`belongsTo` e `hasMany`)

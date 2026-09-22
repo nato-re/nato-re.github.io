@@ -1,6 +1,12 @@
 ---
 title: Tailwind CSS Básico
-tags: [conceitos, frontend, css, tailwind]
+tags:
+  - conceitos
+  - frontend
+  - css
+  - tailwind
+created: 2026-09-22T00:37
+updated: 2026-09-22T01:00
 ---
 
 # 🎨 Tailwind CSS
@@ -9,11 +15,13 @@ O **Tailwind CSS** é um framework CSS do tipo "Utility-first". Em vez de você 
 
 ## Principais Diferenças do Bootstrap
 
-| Feature | Bootstrap | Tailwind |
+Não existe um melhor ou pior, mas abordagens arquiteturais diferentes:
+
+| Característica | Bootstrap (Componentes) | Tailwind (Utilitários) |
 | :--- | :--- | :--- |
-| **Estilo** | Componentes Prontos (`btn btn-primary`) | Utilitários (`bg-blue-500 text-white p-2`) |
-| **Customização** | Difícil (sobrescrever CSS) | Muito fácil (muda a classe no HTML) |
-| **Peso Final** | Pesado (traz tudo) | Leve (purga o que não for usado) |
+| **Abordagem** | Classes semânticas e blocos prontos (`btn btn-primary`) | Propriedades visuais granulares (`bg-blue-500 p-2`) |
+| **Customização** | Exige arquivos CSS extras para sobrescrever variáveis/estilos | Feita diretamente pela combinação de classes no HTML |
+| **Peso do CSS** | Traz estilos padronizados inteiros | O compilador do Vite extrai apenas as classes que você usou |
 
 ## Classes Mais Usadas
 

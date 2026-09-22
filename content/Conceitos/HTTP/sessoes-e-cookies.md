@@ -1,6 +1,12 @@
 ---
 title: Sessões e Cookies
-tags: [conceitos, http, sessao, cookie]
+tags:
+  - conceitos
+  - http
+  - sessao
+  - cookie
+created: 2026-09-22T00:37
+updated: 2026-09-22T00:37
 ---
 
 # 🍪 Sessões e Cookies
