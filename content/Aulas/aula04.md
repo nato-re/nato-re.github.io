@@ -12,7 +12,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-22T00:37
-updated: 2026-09-22T01:05
+updated: 2026-09-22T11:16
 ---
 
 # 🚀 Aula 04: Revisão de Auth, UI & Feedbacks
@@ -121,6 +121,6 @@ Vamos aplicar o Tailwind, fazer o Hash da senha, e disparar o `@error` caso o us
 
 **Ticket #007: Identidade Visual e Validação**
 
-O seu formulário de "Enviar Pergunta" está funcionando, mas está feio e não avisa o usuário se ele tentar enviar uma pergunta vazia!
+Agora que você aprendeu a usar o Tailwind e a diretiva `@error`, a diretoria do AskLive precisa de você. Sua missão é construir do zero a tela de **Criar Eventos** (`eventos/create.blade.php`), garantindo um visual limpo e validação rigorosa!
 
-👉 Entre no Github, veja a Sprint 04 e aplique o Tailwind e o `@error` nas rotas do Aprendiz.
+👉 Entre no Github, acesse a Sprint 04 na Wiki e mão na massa.

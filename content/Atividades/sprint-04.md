@@ -17,7 +17,7 @@ tags:
   - error
   - validacao
 created: 2026-09-22T00:00:00
-updated: 2026-09-22T01:05
+updated: 2026-09-22T11:20
 ---
 
 # 🚀 [Sprint 04] Identidade Visual e Feedback de Validação
@@ -27,31 +27,32 @@ updated: 2026-09-22T01:05
 ## 🎯 Contexto Corporativo
 O professor implementou um visual incrível na página de Registro e Login do AskLive usando **Tailwind CSS**, além de garantir que os usuários saibam exatamente o que erraram através da diretiva `@error`.
 
-Porém, a página de visualização do Evento (onde o público envia as **Perguntas**) ainda está usando formulários HTML puro, sem nenhum estilo. Pior ainda: se o usuário tentar enviar uma pergunta em branco, a página recarrega e não avisa o que aconteceu!
+Agora, a diretoria do AskLive quer permitir que os próprios usuários cadastrem novos Eventos! Sua missão é construir o formulário de **Criação de Eventos**, garantindo que ele tenha uma estilização limpa e feedbacks visuais rigorosos caso o usuário tente enviar dados inválidos (ex: evento sem título).
 
 ---
 
 ## 🚀 Sua Missão
 Acesse a branch `v4.0-auth-tailwind`. Você tem dois chamados críticos de Frontend e UX (Experiência do Usuário) para resolver.
 
-### 🎫 Ticket #007 (UX e Validação do Formulário)
-1. Localize o formulário de envio de perguntas (provavelmente em `resources/views/eventos/show.blade.php`).
-2. Adicione a diretiva `@error('conteudo')` (ou o nome do seu campo) abaixo do `textarea` da pergunta.
-3. Se houver erro, exiba a variável `{{ $message }}` em texto vermelho (`text-red-500`).
-4. Utilize a função `{{ old('conteudo') }}` dentro da tag `<textarea>` para que o usuário não perca o texto digitado caso a validação falhe.
-5. Pinte as bordas do formulário de vermelho condicionalmente usando a checagem `@error('conteudo') border-red-500 @enderror`.
+### 🎫 Ticket #007 (Construção do Formulário e Tailwind)
+1. Crie a view `resources/views/eventos/create.blade.php`.
+2. Estilize o contêiner do formulário centralizando-o na tela (ex: usando `max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md`).
+3. Crie os campos `titulo` e `descricao` usando classes utilitárias para deixar as caixas de texto bonitas (borda cinza, padding, etc).
+4. Substitua o botão padrão por um botão estilizado com Tailwind (ex: `bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700`).
 
-### 🎫 Ticket #008 (Estilização Básica com Tailwind)
-1. Substitua o botão padrão por um botão estilizado com Tailwind (ex: `bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700`).
-2. Adicione um espaçamento decente (`padding` e `margin`) no mural de perguntas para que os "cards" das perguntas fiquem bonitos e se pareçam com balões de chat.
+### 🎫 Ticket #008 (UX e Validação do Formulário)
+1. Adicione a diretiva `@error('titulo')` abaixo do input de título, exibindo a variável `{{ $message }}` em texto vermelho (`text-red-500`). Faça o mesmo para a descrição.
+2. Utilize a função `{{ old('titulo') }}` dentro da tag `<input>` (e `<textarea>`) para que o usuário não perca o texto digitado caso a validação falhe.
+3. Condicione as classes HTML para que as bordas do formulário fiquem vermelhas usando a checagem (ex: `@error('titulo') border-red-500 @enderror`).
 
 ---
 
 ## ⚖️ Critérios de Aceite
-- [ ] Tentar enviar uma pergunta em branco exibe a mensagem de erro em vermelho abaixo do campo.
+- [ ] A view `eventos/create.blade.php` existe e possui um formulário completo.
+- [ ] Tentar enviar um formulário em branco exibe as mensagens de erro em vermelho abaixo dos respectivos campos.
 - [ ] O texto digitado não é apagado após uma falha de validação (graças ao `old()`).
+- [ ] As caixas de texto possuem borda vermelha ativada condicionalmente pelo `@error`.
 - [ ] O botão de envio tem cor de fundo, cor de texto, bordas arredondadas e efeito de hover.
-- [ ] As perguntas no mural estão separadas por margens (`mb-4` ou similar).
 
 ---
 
