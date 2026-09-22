@@ -11,7 +11,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-22T00:37
-updated: 2026-09-22T01:01
+updated: 2026-09-22T01:03
 ---
 
 # 🚀 Aula 04: Revisão de Auth, UI & Feedbacks
@@ -60,6 +60,23 @@ use Illuminate\Support\Facades\Hash;
 $senhaSegura = Hash::make('123456'); 
 // Resultado: $2y$10$wT8Kz... (Impossível reverter!)
 ```
+
+---
+
+## 🔑 A Mágica do Login (`Auth::attempt`)
+
+Para fazer login manualmente, não precisamos verificar o Hash no braço. O Laravel faz isso:
+
+```php
+if (Auth::attempt(['email' => $email, 'password' => $senha])) {
+    // 1. Validou o usuário no banco
+    // 2. Conferiu o Hash da senha
+    // 3. Criou a sessão e enviou o Cookie!
+}
+```
+
+**⚠️ Regra de Ouro:** Sempre regenere a sessão logo após o login para evitar ataques de *Session Fixation* (Hackers sequestrando sessões antigas).
+`$request->session()->regenerate();`
 
 ---
 
