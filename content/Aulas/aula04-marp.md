@@ -1,5 +1,6 @@
 ---
 marp: true
+title: "Aula 04: Revisão de Auth, UI e Feedbacks"
 theme: default
 class: lead
 backgroundColor: "#1E1E2E"
@@ -11,7 +12,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-22T00:37
-updated: 2026-09-22T01:03
+updated: 2026-09-22T01:04
 ---
 
 # 🚀 Aula 04: Revisão de Auth, UI & Feedbacks
