@@ -11,7 +11,7 @@ style: |
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 created: 2026-09-22T00:37
-updated: 2026-09-22T01:00
+updated: 2026-09-22T01:01
 ---
 
 # 🚀 Aula 04: Revisão de Auth, UI & Feedbacks
@@ -91,7 +91,7 @@ O Blade possui atalhos maravilhosos para lidar com formulários.
 
 ---
 
-## 💻 Hora do Live Coding (Mestre)
+## 💻 Hora do Live Coding
 
 **Nossa Missão Agora:**
 Construir a tela de **Cadastro de Usuário** do AskLive.
@@ -99,7 +99,7 @@ Vamos aplicar o Tailwind, fazer o Hash da senha, e disparar o `@error` caso o us
 
 ---
 
-## 🎯 Sua Vez: Sprint 04 (O Aprendiz)
+## 🎯 Sua Vez: Sprint 04
 
 **Ticket #007: Identidade Visual e Validação**
 
