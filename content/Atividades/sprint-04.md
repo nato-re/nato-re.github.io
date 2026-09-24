@@ -17,7 +17,7 @@ tags:
   - error
   - validacao
 created: 2026-09-22T00:00:00
-updated: 2026-09-22T11:20
+updated: 2026-09-24T14:54
 ---
 
 # 🚀 [Sprint 04] Identidade Visual e Feedback de Validação
@@ -41,9 +41,9 @@ Acesse a branch `v4.0-auth-tailwind`. Você tem dois chamados críticos de Front
 4. Substitua o botão padrão por um botão estilizado com Tailwind (ex: `bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700`).
 
 ### 🎫 Ticket #008 (UX e Validação do Formulário)
-1. Adicione a diretiva `@error('titulo')` abaixo do input de título, exibindo a variável `{{ $message }}` em texto vermelho (`text-red-500`). Faça o mesmo para a descrição.
-2. Utilize a função `{{ old('titulo') }}` dentro da tag `<input>` (e `<textarea>`) para que o usuário não perca o texto digitado caso a validação falhe.
-3. Condicione as classes HTML para que as bordas do formulário fiquem vermelhas usando a checagem (ex: `@error('titulo') border-red-500 @enderror`).
+1. Adicione a diretiva `@error('texto')` abaixo do input de título, exibindo a variável `{{ $message }}` em texto vermelho (`text-red-500`). Faça o mesmo para a descrição.
+2. Utilize a função `{{ old('texto') }}` dentro da tag `<input>` (e `<textarea>`) para que o usuário não perca o texto digitado caso a validação falhe.
+3. Condicione as classes HTML para que as bordas do formulário fiquem vermelhas usando a checagem (ex: `@error('texto') border-red-500 @enderror`).
 
 ---
 
