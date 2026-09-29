@@ -63,6 +63,22 @@ O Controller está protegido (Recebemos erro 403). **Mas o botão de Excluir con
 
 ---
 
+## Criando Componentes Blade
+
+No Laravel, podemos criar componentes HTML reutilizáveis colocando os arquivos em `resources/views/components`.
+
+```blade
+<!-- resources/views/components/warning-button.blade.php -->
+<button {{ $attributes->merge(["class" => "btn btn-warning fw-bold text-dark"]) }}>
+    {{ $slot }}
+</button>
+```
+
+- `$slot`: É o texto (ou HTML) que você coloca *dentro* da tag do componente.
+- `$attributes->merge()`: Permite passar propriedades extras (como type="submit" ou id) para a tag html gerada.
+
+---
+
 ## Componentização e Diretiva @can
 
 ```html
