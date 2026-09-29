@@ -28,11 +28,11 @@ O que o sistema faz?
 As **Policies** são classes que organizam a lógica de autorização em torno de um Model.
 
 ```php
-// app/Policies/PerguntaPolicy.php
-public function delete(User $user, Pergunta $pergunta)
+// app/Policies/EventoPolicy.php
+public function close(User $user, Evento $evento)
 {
-    // O usuário logado é o MESMO usuário que criou a pergunta?
-    return $user->id === $pergunta->user_id;
+    // O usuário logado é o MESMO usuário que criou o evento?
+    return $user->id === $evento->user_id;
 }
 ```
 
@@ -44,10 +44,10 @@ Se a Policy diz "Não", o Controller não pode deixar passar.
 
 ```php
 // app/Http/Controllers/EventoController.php
-public function destroyPergunta(Pergunta $pergunta)
+public function close(Evento $evento)
 {
-    $this->authorize('delete', $pergunta);
-    $pergunta->delete();
+    $this->authorize('close', $evento);
+    $evento->update(['status' => 'fechado']);
     return back();
 }
 ```
@@ -66,13 +66,13 @@ O Controller está protegido (Recebemos erro 403). **Mas o botão de Excluir con
 ## Componentização e Diretiva @can
 
 ```html
-<!-- feed.blade.php -->
+<!-- eventos/show.blade.php -->
 <div>
-    <p>{{ $pergunta->body }}</p>
+    <h1>{{ $evento->titulo }}</h1>
     
     <!-- Só renderiza o HTML se a Policy permitir! -->
-    @can('delete', $pergunta)
-        <x-danger-button>Excluir Pergunta</x-danger-button>
+    @can('close', $evento)
+        <x-warning-button>Encerrar Evento</x-warning-button>
     @endcan
 </div>
 ```
