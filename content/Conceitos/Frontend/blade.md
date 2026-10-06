@@ -15,7 +15,7 @@ updated: 2026-09-22T00:36
 
 Blade é o motor de templates oficial do Laravel. Ele permite que escrevamos estruturas lógicas do PHP (como `if`, `foreach`, e manipulação de variáveis) dentro do HTML de forma extremamente limpa. 
 
-Na arquitetura do [[Padrão MVC]], o Blade representa a camada de **View**.
+Na arquitetura do Padrão MVC, o Blade representa a camada de **View**.
 
 A grande vantagem do Blade é que ele é compilado para PHP puro e guardado em cache, garantindo altíssima performance.
 
@@ -32,8 +32,8 @@ A grande vantagem do Blade é que ele é compilado para PHP puro e guardado em c
     <p class="alert alert-info">Nenhuma pergunta enviada ainda. Seja o primeiro!</p>
 @endforelse
 ```
-- Exibir botões de [[Paginação]]: `{{ $perguntas->links() }}`
-- Renderizar feedbacks de erros barrados pela [[Validação (FormRequest)]]:
+- Exibir botões de [[Conceitos/Database/paginacao|Paginação]]: `{{ $perguntas->links() }}`
+- Renderizar feedbacks de erros barrados pela [[Conceitos/HTTP/validacao-form-request|Validação (FormRequest)]]:
 ```blade
 @error('texto')
     <div class="text-danger small mt-1">{{ $message }}</div>

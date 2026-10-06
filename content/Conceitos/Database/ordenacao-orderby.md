@@ -12,7 +12,7 @@ updated: 2026-09-22T00:36
 ---
 # Ordenação (orderBy)
 
-Utilizamos o `orderBy` logo após invocar um [[Model]] ou um [[Filtro (where)]] para definir a ordem em que os resultados virão do banco.
+Utilizamos o `orderBy` logo após invocar um [[Conceitos/Database/model|Model]] ou um [[Conceitos/Database/filtro-where|Filtro (where)]] para definir a ordem em que os resultados virão do banco.
 
 ### Sintaxe
 ```php

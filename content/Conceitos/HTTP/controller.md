@@ -11,14 +11,14 @@ updated: 2026-09-22T00:36
 ---
 # Controller
 
-O **Controller** atua como o "maestro" da aplicação no [[Padrão MVC]]. Ele é a ponte de ligação entre o que o usuário pede e o que o servidor faz.
+O **Controller** atua como o "maestro" da aplicação no Padrão MVC. Ele é a ponte de ligação entre o que o usuário pede e o que o servidor faz.
 
-Por boas práticas de desenvolvimento limpo, o Controller não deve conter regras complexas (como verificar tamanho de senhas — isso é trabalho da [[Validação (FormRequest)]]).
+Por boas práticas de desenvolvimento limpo, o Controller não deve conter regras complexas (como verificar tamanho de senhas — isso é trabalho da [[Conceitos/HTTP/validacao-form-request|Validação (FormRequest)]]).
 
 **O Fluxo ideal de um Controller:**
-1. Recebe a [[Requisição]] que foi encaminhada pela rota.
-2. Interage com o [[Model]] para buscar, filtrar ou salvar dados no banco.
-3. Empacota tudo e entrega para a interface (o [[Blade]]).
+1. Recebe a [[Conceitos/HTTP/requisicao|Requisição]] que foi encaminhada pela rota.
+2. Interage com o [[Conceitos/Database/model|Model]] para buscar, filtrar ou salvar dados no banco.
+3. Empacota tudo e entrega para a interface (o [[Conceitos/Frontend/blade|Blade]]).
 
 Exemplo:
 ```php

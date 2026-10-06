@@ -50,7 +50,7 @@ O método manual para tentar fazer login. Ele recebe um array com as credenciais
 
 ```php
 $credentials = [
-    'email' => 'natu@cotemig.br',
+    'email' => 'aluno@example.com',
     'password' => 'senha_super_secreta'
 ];
 

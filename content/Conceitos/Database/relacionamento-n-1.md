@@ -54,7 +54,7 @@ Podemos navegar dinamicamente como uma propriedade do objeto:
 <p>Autor: {{ $pergunta->user->name ?? 'Anônimo' }}</p>
 ```
 
-> **Atenção:** Ao iterar sobre perguntas exibindo o usuário, lembre-se de usar [[Conceitos/Eager Loading (with)|Eager Loading (with)]] para evitar sobrecarregar o banco com dezenas de consultas repetidas!
+> **Atenção:** Ao iterar sobre perguntas exibindo o usuário, lembre-se de usar [[Conceitos/Database/eager-loading-with|Eager Loading (with)]] para evitar sobrecarregar o banco com dezenas de consultas repetidas!
 
 
 ## 📖 Documentação Oficial

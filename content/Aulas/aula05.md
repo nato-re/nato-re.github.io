@@ -1,9 +1,23 @@
 ---
 marp: true
+title: "Aula 05: AuthZ & Interfaces Dinâmicas"
 theme: default
-class: invert
+class: lead
+backgroundColor: "#1E1E2E"
+color: "#CDD6F4"
+style: |
+  h1, h2, h3 { color: #89B4FA; }
+  strong { color: #F38BA8; }
+  a { color: #A6E3A1; text-decoration: none; }
+  code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
+  pre { background-color: #181825; border-left: 4px solid #89B4FA; }
 paginate: true
+created: 2026-09-29T10:00
+updated: 2026-10-05
 ---
+
+> [!TIP] Apresentação
+> 📽️ **<a href="/slides/aula05.html" data-router-ignore target="_blank">Abrir Slides (Marp)</a>** — Versão para projeção em sala de aula.
 
 # 🛡️ Aula 05: AuthZ & Interfaces Dinâmicas
 *TPA Laravel - AskLive App*

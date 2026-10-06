@@ -6,7 +6,7 @@ tags:
   - cotemig
   - laravel
 created: 2026-08-31T20:12:00
-updated: 2026-09-22T01:05
+updated: 2026-10-05
 ---
 
 # 🎓 Wiki — TPA: Desenvolvimento Backend com Laravel
@@ -25,6 +25,8 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 | **02** | Relacionamentos N:1 e Otimização Eager Loading | [[Aulas/aula02\|📖 Guia]] | <a href="/slides/aula02.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-02\|🎯 Sprint 02]] |
 | **03** | Área VIP: Autenticação Manual e Middlewares | [[Aulas/aula03\|📖 Guia]] | <a href="/slides/aula03.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-03\|🎯 Sprint 03]] |
 | **04** | Revisão de Auth, Tailwind CSS e Validação Visual | [[Aulas/aula04\|📖 Guia]] | <a href="/slides/aula04.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04]] |
+| **05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | [[Aulas/aula05|📖 Guia]] | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05|🎯 Sprint 05]] |
+| **06** | Relacionamentos N:M & Tabelas Pivot (Upvotes) | [[Aulas/aula06|📖 Guia]] | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06|🎯 Sprint 06]] |
 
 👉 [[Etapas/etapa-3|Acessar o Hub Completo da 3ª Etapa com Repositório e Instruções de Setup]]
 
@@ -37,6 +39,7 @@ Consulte os artigos atômicos para tirar dúvidas de sintaxe e arquitetura:
 ### 🗄️ Banco de Dados & Eloquent ORM
 - [[Conceitos/Database/model|Model (Eloquent ORM)]] — Definição de tabelas, atributos e convenções
 - [[Conceitos/Database/relacionamento-n-1|Relacionamentos N:1]] — Uso de `belongsTo` e `hasMany` entre tabelas
+- [[Conceitos/Database/relacionamento-n-m-pivot|Relacionamentos N:M e Tabelas Pivot]] — Relações muitos-para-muitos, `belongsToMany`, `toggle()` e `withCount()`
 - [[Conceitos/Database/eager-loading-with|Eager Loading com with()]] — Detecção e eliminação do problema $N+1$
 - [[Conceitos/Database/filtro-where|Filtros com where()]] — Filtragem condicional encadeada
 - [[Conceitos/Database/ordenacao-orderby|Ordenação (orderBy / latest)]] — Ordenação de resultados
@@ -47,6 +50,11 @@ Consulte os artigos atômicos para tirar dúvidas de sintaxe e arquitetura:
 - [[Conceitos/HTTP/validacao-form-request|Validação com FormRequest]] — Proteção de dados e HTTP 422
 - [[Conceitos/HTTP/requisicao|Requisições HTTP]] — Ciclo de vida da requisição e status codes
 - [[Conceitos/Frontend/blade|Blade Templating]] — Renderização dinâmica de views HTML
+
+### 🔒 Segurança & Autorização
+- [[Conceitos/Seguranca/auth-facade|Auth Facade]] — Login manual e usuário autenticado
+- [[Conceitos/Seguranca/authz-policies|Autorização (AuthZ & Policies)]] — Regras de acesso e proteção de modelos
+- [[Conceitos/Seguranca/hash-senhas|Hash de Senhas]] — Armazenamento seguro de credenciais
 
 ---
 

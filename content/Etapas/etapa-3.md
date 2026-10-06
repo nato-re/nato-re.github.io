@@ -6,7 +6,7 @@ tags:
   - asklive
   - falaq
 created: 2026-09-08T11:00:00
-updated: 2026-09-22T00:36
+updated: 2026-10-05
 ---
 
 # 🚀 3ª Etapa: APIs REST & Otimização de Performance
@@ -21,9 +21,12 @@ Nesta etapa, assumimos o papel de desenvolvedores backend na startup **FalaQ-Eu_
 
 | Sprint / Aula | Tema Central | Slides da Aula | Enunciado da Atividade | Conceitos Relacionados |
 | :--- | :--- | :--- | :--- | :--- |
-| **Aula 01 / Sprint 01** | Onboarding no Projeto, FormRequests e Paginação | <a href="/slides/aula01-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-01\|🎯 Sprint 01: Estabilização do MVP]] | [[Conceitos/validacao-form-request\|Validação]], [[Conceitos/paginacao\|Paginação]] |
-| **Aula 02 / Sprint 02** | Relacionamentos N:1 (`belongsTo`/`hasMany`) e Eager Loading (`with()`) | <a href="/slides/aula02-marp.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-02\|🎯 Sprint 02: Autoria & Performance (N+1)]] | [[Conceitos/relacionamento-n-1\|Relacionamentos N:1]], [[Conceitos/eager-loading-with\|Eager Loading]] |
-| **Aula 03 / Sprint 03** | APIs RESTful & Respostas Padronizadas (JSON) | *Em breve* | *Em breve* | [[Conceitos/controller\|Controllers API]] |
+| **Aula 01 / Sprint 01** | Onboarding no Projeto, FormRequests e Paginação | <a href="/slides/aula01.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-01\|🎯 Sprint 01: Estabilização do MVP]] | [[Conceitos/HTTP/validacao-form-request\|Validação]], [[Conceitos/Database/paginacao\|Paginação]] |
+| **Aula 02 / Sprint 02** | Relacionamentos N:1 (`belongsTo`/`hasMany`) e Eager Loading (`with()`) | <a href="/slides/aula02.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-02\|🎯 Sprint 02: Autoria & Performance (N+1)]] | [[Conceitos/Database/relacionamento-n-1\|Relacionamentos N:1]], [[Conceitos/Database/eager-loading-with\|Eager Loading]] |
+| **Aula 03 / Sprint 03** | Área VIP: Autenticação Manual e Middlewares | <a href="/slides/aula03.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-03\|🎯 Sprint 03: Área VIP e Autenticação]] | [[Conceitos/Seguranca/auth-facade\|Auth Facade]], [[Conceitos/HTTP/middleware\|Middlewares]] |
+| **Aula 04 / Sprint 04** | Revisão de Auth, Tailwind CSS e Validação Visual | <a href="/slides/aula04.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04: Validação Visual]] | [[Conceitos/Frontend/tailwind-basico\|Tailwind]], [[Conceitos/Frontend/blade-diretivas-error\|Diretivas @error]] |
+| **Aula 05 / Sprint 05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05\|🎯 Sprint 05: Proteção de Entidade Filha]] | [[Conceitos/Seguranca/authz-policies\|AuthZ & Policies]], [[Conceitos/Frontend/blade\|Blade]] |
+| **Aula 06 / Sprint 06** | Relacionamentos N:M e Tabelas Pivot (Upvotes) | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06\|🎯 Sprint 06: Upvotes & Ranking no Telão]] | [[Conceitos/Database/relacionamento-n-m-pivot\|Relacionamentos N:M]], [[Conceitos/Database/ordenacao-orderby\|Ordenação]] |
 
 ---
 
