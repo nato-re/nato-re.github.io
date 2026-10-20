@@ -27,6 +27,7 @@ Nesta etapa, assumimos o papel de desenvolvedores backend na startup **FalaQ-Eu_
 | **Aula 04 / Sprint 04** | Revisão de Auth, Tailwind CSS e Validação Visual | <a href="/slides/aula04.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04: Validação Visual]] | [[Conceitos/Frontend/tailwind-basico\|Tailwind]], [[Conceitos/Frontend/blade-diretivas-error\|Diretivas @error]] |
 | **Aula 05 / Sprint 05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05\|🎯 Sprint 05: Proteção de Entidade Filha]] | [[Conceitos/Seguranca/authz-policies\|AuthZ & Policies]], [[Conceitos/Frontend/blade\|Blade]] |
 | **Aula 06 / Sprint 06** | Relacionamentos N:M e Tabelas Pivot (Upvotes) | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06\|🎯 Sprint 06: Upvotes & Ranking no Telão]] | [[Conceitos/Database/relacionamento-n-m-pivot\|Relacionamentos N:M]], [[Conceitos/Database/ordenacao-orderby\|Ordenação]] |
+| **Aula 07 / Sprint 07** | Engenharia de Requisitos & Ciclo de Vida do Dado | <a href="/slides/aula07.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-07\|🎯 Sprint 07: Sistema de Moderação de Perguntas]] | [[Conceitos/Arquitetura/engenharia-de-requisitos\|Requisitos]], [[Conceitos/Database/ciclo-de-vida-e-status\|Ciclo de Vida]] |
 
 ---
 

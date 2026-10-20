@@ -27,6 +27,7 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 | **04** | Revisão de Auth, Tailwind CSS e Validação Visual | [[Aulas/aula04\|📖 Guia]] | <a href="/slides/aula04.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-04\|🎯 Sprint 04]] |
 | **05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | [[Aulas/aula05|📖 Guia]] | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05|🎯 Sprint 05]] |
 | **06** | Relacionamentos N:M & Tabelas Pivot (Upvotes) | [[Aulas/aula06|📖 Guia]] | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06|🎯 Sprint 06]] |
+| **07** | Engenharia de Requisitos & Ciclo de Vida do Dado | [[Aulas/aula07|📖 Guia]] | <a href="/slides/aula07.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-07|🎯 Sprint 07]] |
 
 👉 [[Etapas/etapa-3|Acessar o Hub Completo da 3ª Etapa com Repositório e Instruções de Setup]]
 
@@ -36,20 +37,22 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 
 Consulte os artigos atômicos para tirar dúvidas de sintaxe e arquitetura:
 
-### 🗄️ Banco de Dados & Eloquent ORM
-- [[Conceitos/Database/model|Model (Eloquent ORM)]] — Definição de tabelas, atributos e convenções
-- [[Conceitos/Database/relacionamento-n-1|Relacionamentos N:1]] — Uso de `belongsTo` e `hasMany` entre tabelas
-- [[Conceitos/Database/relacionamento-n-m-pivot|Relacionamentos N:M e Tabelas Pivot]] — Relações muitos-para-muitos, `belongsToMany`, `toggle()` e `withCount()`
-- [[Conceitos/Database/eager-loading-with|Eager Loading com with()]] — Detecção e eliminação do problema $N+1$
-- [[Conceitos/Database/filtro-where|Filtros com where()]] — Filtragem condicional encadeada
-- [[Conceitos/Database/ordenacao-orderby|Ordenação (orderBy / latest)]] — Ordenação de resultados
-- [[Conceitos/Database/paginacao|Paginação de Dados]] — Navegação eficiente sem sobrecarregar a memória
-
-### 🌐 Arquitetura Web & MVC
+### 📐 Arquitetura & Engenharia de Software
+- [[Conceitos/Arquitetura/engenharia-de-requisitos|Engenharia de Requisitos]] — Do briefing corporativo às classes e migrations do Laravel
 - [[Conceitos/HTTP/controller|Controllers no Laravel]] — Orquestração de regras de negócio
 - [[Conceitos/HTTP/validacao-form-request|Validação com FormRequest]] — Proteção de dados e HTTP 422
 - [[Conceitos/HTTP/requisicao|Requisições HTTP]] — Ciclo de vida da requisição e status codes
 - [[Conceitos/Frontend/blade|Blade Templating]] — Renderização dinâmica de views HTML
+
+### 🗄️ Banco de Dados & Eloquent ORM
+- [[Conceitos/Database/model|Model (Eloquent ORM)]] — Definição de tabelas, atributos e convenções
+- [[Conceitos/Database/relacionamento-n-1|Relacionamentos N:1]] — Uso de `belongsTo` e `hasMany` entre tabelas
+- [[Conceitos/Database/relacionamento-n-m-pivot|Relacionamentos N:M e Tabelas Pivot]] — Relações muitos-para-muitos, `belongsToMany`, `toggle()` e `withCount()`
+- [[Conceitos/Database/ciclo-de-vida-e-status|Ciclo de Vida do Dado & Status]] — Modelagem de estados, valores padrão e transições no Eloquent
+- [[Conceitos/Database/eager-loading-with|Eager Loading com with()]] — Detecção e eliminação do problema $N+1$
+- [[Conceitos/Database/filtro-where|Filtros com where()]] — Filtragem condicional encadeada
+- [[Conceitos/Database/ordenacao-orderby|Ordenação (orderBy / latest)]] — Ordenação de resultados
+- [[Conceitos/Database/paginacao|Paginação de Dados]] — Navegação eficiente sem sobrecarregar a memória
 
 ### 🔒 Segurança & Autorização
 - [[Conceitos/Seguranca/auth-facade|Auth Facade]] — Login manual e usuário autenticado

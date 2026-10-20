@@ -282,3 +282,13 @@ Na view `resources/views/eventos/show.blade.php`:
     @endauth
 </div>
 ```
+
+---
+
+## 🎯 Agora é com vocês! (Sprint 06)
+
+Implementar o espelho na entidade filha: **Sistema de Upvotes em Perguntas**.
+
+- 📖 **Artigo de Referência:** [[Conceitos/Database/relacionamento-n-m-pivot|Tabelas Pivot & belongsToMany]]
+- 🎯 **Enunciado e Rubrica:** [[Atividades/sprint-06|Sprint 06: Upvotes & Ranking de Perguntas]]
+- 💻 **Branch de Partida:** `v5.0-pivot-starter`
