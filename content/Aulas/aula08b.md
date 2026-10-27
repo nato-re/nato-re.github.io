@@ -11,34 +11,76 @@ style: |
   a { color: #A6E3A1; text-decoration: none; }
   code { background-color: #313244; color: #FAB387; padding: 2px 6px; border-radius: 4px; }
   pre { background-color: #181825; border-left: 4px solid #89B4FA; font-size: 0.85em; }
+  .somente-web { display: none !important; }
 paginate: true
 created: 2026-10-27T08:00:00
-updated: 2026-10-27T08:00:00
+updated: 2026-10-27T10:00:00
 ---
 
-> [!TIP] Apresentação
-> 📽️ **<a href="/slides/aula08b.html" data-router-ignore target="_blank">Abrir Slides (Marp)</a>** — Versão para projeção em sala de aula.
+<div class="somente-web">
+
+> [!TIP] Apresentação em Slides
+> 📽️ **<a href="/slides/aula08b.html" data-router-ignore target="_blank">Abrir Slides da Aula 08B (Marp)</a>** — Versão para projeção em sala de aula.
+> 📦 **<a href="/static/tpa-aula08b-base.zip" target="_blank">Download do Projeto Base (ZIP)</a>** — Aplicação executável pronta para acompanhamento prático.
+
+</div>
 
 # 📊 Aula 08B: Integração de APIs & O Ciclo das Duas Requisições HTTP
-*TPA Laravel — Séries Temporais do Ibovespa em Períodos Pós-Eleitorais*  
-**O Papel do Laravel no Servidor e do Navegador no Frontend**
+*TPA Laravel — Backend (Http::get) & Frontend (fetch)*  
+**Séries do Ibovespa em Períodos Pós-Eleitorais: Arquitetura & Resiliência**
 
 ---
 
-## 🎯 O Desafio da Aula
+## 📦 1. Obtenção da Base & Execução Imediata
 
-Queremos modelar a integração e a exibição de séries temporais vinculadas a marcos do calendário eleitoral brasileiro (2º turno de 2014, 2018 e 2022).
+Você não precisa construir a infraestrutura do zero. Baixe a base executável completa:
 
-Como o acesso a APIs de mercado financeiro impõe restrições de rede e cotações reais não foram verificadas no ambiente de ensino, nosso objetivo central é **o ciclo completo de resiliência das duas requisições HTTP** sem alegar análise de mercado realizada:
+- **Download direto:** `https://nato-re.github.io/static/tpa-aula08b-base.zip`
+- **Setup em container descartável (sem instalar PHP/Composer no host):**
 
-1. **Requisição 1 (Servidor):** O Laravel consome o serviço externo de cotações com timeout defensivo e contingência estrutural (`Http::get`).
-2. **Requisição 2 (Navegador):** O JavaScript do cliente consome a API JSON do nosso Laravel com tratamento seguro de respostas (`fetch`).
+```bash
+# 1. Baixar e descompactar
+curl -O https://nato-re.github.io/static/tpa-aula08b-base.zip
+unzip tpa-aula08b-base.zip && cd tpa-aula08b-base
 
-> **Aviso Metodológico:** As datas eleitorais seguem o calendário oficial do Tribunal Superior Eleitoral (TSE: https://www.tse.jus.br/). As datas D+0 e D+30 são marcos calendários didáticos para modelagem temporal. Cotações de mercado reais não estão disponíveis neste ambiente e são tratadas sob estrutura didática com status explícito de indisponibilidade. Variações históricas refletem conjunturas macroeconômicas complexas; associação temporal **não implica causalidade**.
+# 2. Configurar ambiente e dependências
+cp .env.example .env
+docker run -v $PWD:/app -w /app composer:2 composer install
+docker run -v $PWD:/app -w /app composer:2 php artisan key:generate
+
+# 3. Subir o servidor de desenvolvimento
+docker run --name tpa_aula08b -p 8000:8000 -v $PWD:/app -w /app composer:2 php artisan serve --host=0.0.0.0 --port=8000
+```
 
 ---
 
-## 🧭 O Mapa das Duas Requisições HTTP
+## 🗺️ 2. As Duas URLs Locais & Mapa de Arquivos
+
+Abra no seu navegador:
+1. `http://localhost:8000/` &rarr; **Aplicação Web Interativa** (Blade + JS)
+2. `http://localhost:8000/api/ibovespa/pos-eleicoes` &rarr; **API JSON do Nosso Laravel**
+
+**Arquivos essenciais que você vai inspecionar e modificar:**
+- `app/Services/IbovespaService.php` &rarr; **Requisição 1** (`Http::get` no backend)
+- `app/Http/Controllers/IbovespaController.php` &rarr; Normalização de dados e resposta JSON
+- `routes/api.php` &rarr; Rota exposta pela aplicação
+- `resources/views/ibovespa.blade.php` &rarr; **Requisição 2** (`fetch()` no navegador)
+- `storage/app/dados/ibovespa_historico.json` &rarr; Contingência local offline
+- `tests/` &rarr; Suíte de testes automatizados (`php artisan test`)
+
+---
+
+## 🛡️ 3. O Que Fazer Quando a API Externa Falhar?
+
+Em ambiente corporativo ou na rede escolar, **serviços externos oscilam ou bloqueiam acessos**:
+
+1. **Timeout Defensivo (5s):** Nunca deixe uma requisição externa esperar indefinidamente, sob pena de esgotar os workers do PHP-FPM.
+2. **Contingência Estrutural Transparente:** Se a API externa falhar (HTTP 429, 500 ou timeout de rede), o Laravel recorre ao arquivo local `storage/app/dados/ibovespa_historico.json`.
+3. **Honestidade nos Dados:** Quando não há cotações reais verificadas no ambiente, o sistema entrega `null` e declara o status abertamente, **sem inventar preços** e sem quebrar a tela.
+
+---
+
+## 🧭 4. O Ciclo das Duas Requisições HTTP
 
 ```
                     ┌──────────────────────────────────┐
@@ -46,323 +88,381 @@ Como o acesso a APIs de mercado financeiro impõe restrições de rede e cotaç�
                     └────────────────▲─────────────────┘
                                      │
            [Requisição 1: Servidor a Servidor (Http::get)]
-           (PHP no backend; timeout defensivo; CORS não se aplica entre servidores)
+           (PHP no backend; timeout defensivo; CORS NÃO se aplica)
                                      │
                     ┌────────────────▼─────────────────┐
                     │  Aplicação Laravel (Nosso App)   │
-                    │  Controller -> Normalização JSON │
+                    │  Service -> Controller -> JSON   │
                     └────────────────▲─────────────────┘
                                      │
            [Requisição 2: Cliente ao Servidor (fetch)]
-           (JavaScript no browser; validação de response.ok)
+           (JavaScript no browser; mesma origem; validação response.ok)
                                      │
                     ┌────────────────▼─────────────────┐
-                    │  Navegador do Usuário            │
-                    │  (DOM e Renderização Gráfica)    │
+                    │  Navegador do Estudante          │
+                    │  (Interface DOM e Canvas)        │
                     └──────────────────────────────────┘
 ```
 
 ---
 
-## ⚙️ Requisição 1: O Laravel como Cliente HTTP
+## ⚙️ 5. Requisição 1: O Laravel como Cliente HTTP
 
-No backend, o Laravel faz a requisição externa utilizando a Facade `Http`:
+**Por que a chamada externa é feita no servidor e não no navegador?**
+
+1. **CORS é restrição de navegadores:**
+   - CORS (*Cross-Origin Resource Sharing*) é aplicado exclusivamente por navegadores para proteger usuários contra requisições cross-site não autorizadas.
+   - Requisições servidor-a-servidor (feitas pelo PHP com `Http::get`) trafegam diretamente pela rede e **não passam pelo navegador**: CORS simplesmente não existe entre servidores.
+2. **Encapsulamento e Segurança:**
+   - Detalhes de infraestrutura, URLs de provedores e eventuais tokens de acesso nunca são expostos no código-fonte do cliente.
+3. **Resiliência Centralizada:**
+   - O servidor normaliza os dados e aplica contingência antes de entregar ao frontend.
+
+---
+
+## 🔍 6. Requisição 1 no Código: `IbovespaService.php`
+
+No backend, o Laravel consome o serviço externo com timeout obrigatório:
 
 ```php
 use Illuminate\Support\Facades\Http;
 
-// Consulta o endpoint de cotações com intervalo histórico configurado
-$url = 'https://query1.finance.yahoo.com/v8/finance/chart/%5EBVSP?period1=1414368000&period2=1669852800&interval=1d';
-
-// Timeout obrigatório para proteger os workers do PHP-FPM
-$response = Http::withHeaders([
-    'User-Agent' => 'AskLive-Finance/1.0',
-])->timeout(5)->get($url);
-```
-
-**Por que a chamada externa é feita no servidor?**
-- **CORS é política aplicada por navegadores:** CORS (*Cross-Origin Resource Sharing*) é um mecanismo de segurança implementado e aplicado exclusivamente por navegadores para restringir requisições HTTP entre origens distintas. Chamadas HTTP servidor-a-servidor (como as feitas pelo PHP/Laravel via `Http::get`) não passam pelo navegador e, portanto, não estão sujeitas a restrições de CORS.
-- **Proteção da arquitetura:** O navegador do usuário final consome apenas a API da própria aplicação (mesma origem), mantendo eventuais chaves de acesso, credenciais e detalhes de infraestrutura encapsulados no backend.
-
----
-
-## 🛡️ Tratamento Defensivo na Resposta Externa
-
-APIs externas podem oscilar, sofrer lentidão, timeout de rede ou responder erros 4xx/5xx:
-
-```php
-try {
+public function consultarApiExterna(string $url): array
+{
+    // Timeout estrito de 5s: protege workers do PHP-FPM contra travamento
     $response = Http::withHeaders([
         'User-Agent' => 'AskLive-Finance/1.0',
     ])->timeout(5)->get($url);
 
-    if ($response->successful()) { // Status 200 a 299
-        $payload = $response->json() ?? [];
-        $resultadoChart = $payload['chart']['result'][0] ?? null;
-        $erroChart = $payload['chart']['error'] ?? null;
-
-        // Trata payload HTTP 2xx com chart.result ausente ou com erro como inválido/indisponível
-        if (!empty($resultadoChart['timestamp']) && empty($erroChart)) {
-            return [
-                'origem' => 'api_externa',
-                'series' => $this->normalizarSeriesExternas($payload),
-            ];
-        }
-
-        \Illuminate\Support\Facades\Log::warning("Resposta HTTP externa 2xx com payload inválido ou erro no chart");
-    } else {
-        \Illuminate\Support\Facades\Log::warning("Resposta HTTP externa com erro: " . $response->status());
+    if ($response->successful()) {
+        return [
+            'origem' => 'api_externa',
+            'series' => $this->normalizarSeriesExternas($response->json()),
+        ];
     }
-} catch (\Throwable $e) {
-    // Trata timeouts de rede, queda de conexão ou falhas de DNS
-    \Illuminate\Support\Facades\Log::warning("Exceção na chamada externa: " . $e->getMessage());
+
+    // Se o serviço externo responder erro 4xx/5xx, aciona contingência
+    return $this->carregarContingenciaOuIndisponivel();
 }
-
-// Se a chamada externa falhar, oscilar ou der timeout, aciona contingência estrutural:
-$historico = $this->carregarHistoricoArquivado();
-
-if ($historico !== null) {
-    return [
-        'origem' => 'historico_arquivado_contingencia',
-        'series' => $historico,
-    ];
-}
-
-// Se o arquivo local de contingência também não estiver acessível, declara indisponibilidade:
-return [
-    'origem' => 'indisponivel',
-    'series' => [],
-];
 ```
-
-> **Regra de Ouro:** Nunca deixe a sua aplicação quebrar porque o serviço de terceiro falhou. Defina timeout, capture exceções de rede e tenha sempre uma estratégia de contingência transparente.
 
 ---
 
-## 💾 Plano de Contingência: Fallback em Arquivo Local
+## 💾 7. Contingência Estrutural com Arquivo Local
 
-Se o serviço externo estiver indisponível ou bloqueado por proxy da rede escolar, carregamos a estrutura didática de contingência (arquivo JSON local com marcos calendários do TSE e cotações nulas; não se trata de série histórica de preços).
-
-**Instalação do arquivo no projeto Laravel:**
-Copie o JSON de contingência disponibilizado no material do curso (`site/static/dados/ibovespa_historico.json`) para a pasta de dados da aplicação:
-```bash
-mkdir -p storage/app/dados
-cp /caminho/para/site/static/dados/ibovespa_historico.json storage/app/dados/
-# Nota didática: o arquivo local provê contingência estrutural imediata no ambiente local.
-```
+Se a API externa cair, oscilar ou for bloqueada por proxy escolar, a aplicação mantém a funcionalidade com os marcos do calendário eleitoral oficial do TSE:
 
 ```php
-class IbovespaFallback
+public function carregarHistoricoArquivado(): ?array
 {
-    /**
-     * Contingência didática com estrutura arquivada em JSON:
-     * Calendário eleitoral: Resoluções TSE nº 23.390/2013, 23.555/2017 e 23.674/2021.
-     * Marcos temporais: D+0 e D+30 como marcos calendários didáticos.
-     * Cotações: Marcadores de calendário com cotações nulas (demonstração sem dados reais não verificados).
-     */
-    public function carregarHistoricoArquivado(): ?array
-    {
-        $caminho = storage_path('app/dados/ibovespa_historico.json');
-        if (!file_exists($caminho)) {
-            \Illuminate\Support\Facades\Log::warning("Arquivo de contingência não encontrado em {$caminho}");
-            return null;
-        }
-
-        $conteudo = json_decode(file_get_contents($caminho), true);
-        return $conteudo['series'] ?? null;
+    $caminho = storage_path('app/dados/ibovespa_historico.json');
+    if (!file_exists($caminho)) {
+        return null;
     }
+
+    $conteudo = json_decode(file_get_contents($caminho), true);
+    return $conteudo['series'] ?? null;
 }
 ```
 
+- **Marcos Oficiais:** Resoluções TSE nº 23.390 (2014), 23.555 (2018) e 23.674 (2021).
+- **Datas:** D0 é o 1º dia útil pós-pleito; D+15 e D+30 são marcos calendários didáticos (dias corridos após D0). Cotações não verificadas vêm como `null`.
+
 ---
 
-## 🚀 Expondo a API JSON do Nosso Laravel
+## 🚀 8. Expondo a API no Laravel: `IbovespaController.php`
 
-Agora o Laravel atua como **servidor** para o nosso frontend.  
-Em `routes/api.php`:
+O Laravel agora assume o papel de **servidor** para o nosso frontend:
 
 ```php
-use App\Http\Controllers\IbovespaController;
-
+// routes/api.php
 Route::get('/ibovespa/pos-eleicoes', [IbovespaController::class, 'index']);
 ```
 
-No `IbovespaController.php`:
 ```php
-class IbovespaController extends Controller
+// app/Http/Controllers/IbovespaController.php
+public function index(Request $request): JsonResponse
 {
-    public function index(): \Illuminate\Http\JsonResponse
-    {
-        $resultado = $this->ibovespaService->obterCotacoes();
+    $resultado = $this->ibovespaService->obterCotacoes();
 
-        if ($resultado['origem'] === 'indisponivel') {
-            return response()->json([
-                'mercado'       => 'B3 / Ibovespa',
-                'origem_dados'  => 'indisponivel',
-                'aviso'         => 'Serviço externo e arquivo local de contingência indisponíveis no momento.',
-                'fontes'        => [
-                    'tse'      => 'TSE - Calendário Eleitoral Oficial (Resoluções 23.390, 23.555 e 23.674)',
-                    'cotacoes' => 'Demonstração indisponível.',
-                ],
-                'series'        => [],
-            ], 503);
-        }
-
+    if ($resultado['origem'] === 'indisponivel') {
         return response()->json([
-            'mercado'       => 'B3 / Ibovespa',
-            'origem_dados'  => $resultado['origem'], // 'api_externa' ou 'historico_arquivado_contingencia'
-            'aviso'         => 'Estrutura didática para análise temporal. Não prova causalidade.',
-            'fontes'        => [
-                'tse'      => 'TSE - Calendário Eleitoral Oficial (Resoluções 23.390, 23.555 e 23.674)',
-                'cotacoes' => 'Demonstração didática de estrutura sem cotações de mercado não verificadas.',
-            ],
-            'series'        => $resultado['series'],
-        ]);
+            'mercado'      => 'B3 / Ibovespa',
+            'origem_dados' => 'indisponivel',
+            'series'       => [],
+        ], 503);
     }
+
+    return response()->json([
+        'mercado'      => 'B3 / Ibovespa',
+        'origem_dados' => $resultado['origem'],
+        'series'       => $resultado['series'],
+    ], 200);
 }
 ```
 
 ---
 
-## ⚡ Requisição 2: O Navegador como Cliente (`fetch`)
+## ⚡ 9. Requisição 2: O Navegador como Cliente (`fetch`)
 
-No frontend (Blade / JavaScript), o navegador consome nosso próprio endpoint:
+No frontend (`resources/views/ibovespa.blade.php`), o JavaScript consome nossa API interna:
 
 ```javascript
 fetch('/api/ibovespa/pos-eleicoes')
     .then(response => {
-        // ⚠️ ATENÇÃO: fetch() NÃO rejeita erro 404 ou 500!
+        // ⚠️ ATENÇÃO: fetch() NÃO pula para o catch em erro 4xx ou 500!
         if (!response.ok) {
             throw new Error(`Erro na API do Laravel: HTTP ${response.status}`);
         }
         return response.json();
     })
-    .then(dados => {
-        console.log('Dados recebidos:', dados.series);
-        const statusEl = document.getElementById('status');
-
-        // Diferencia cotações disponíveis de demonstração com cotações indisponíveis
-        const temCotacoesReais = Array.isArray(dados.series) &&
-            dados.series.some(p => p.status_cotacao === 'serie_disponivel' && p.d0_fechamento !== null && p.d30_fechamento !== null);
-
-        if (dados.origem_dados === 'indisponivel' || !temCotacoesReais) {
-            if (statusEl) {
-                statusEl.textContent = `Status: ${dados.origem_dados}. Cotações de mercado reais indisponíveis neste ambiente.`;
-            }
-            return;
-        }
-
-        renderizarGrafico(dados.series);
+    .then(payload => {
+        console.log('Origem dos dados:', payload.origem_dados);
+        renderizarTabela(payload.series);
     })
     .catch(erro => {
-        console.error('Falha de rede ou processamento:', erro.message);
-        const statusEl = document.getElementById('status');
-        if (statusEl) {
-            statusEl.textContent = `Falha ao carregar cotações: ${erro.message}`;
-        }
+        console.error('Falha capturada:', erro.message);
     });
 ```
 
 ---
 
-## ❓ A Pegadinha Fundamental do `fetch()`
+## ⚠️ 10. A Pegadinha Fundamental do `fetch()`
 
-> **Por que checar `if (!response.ok)` é obrigatório?**
+**Por que a verificação `if (!response.ok)` é obrigatória?**
 
-Se o Laravel retornar status `500 (Internal Server Error)` com uma página HTML de erro:
-
-1. O `fetch()` **NÃO** pula para o `.catch()`. A Promise é considerada resolvida com sucesso porque houve uma resposta HTTP!
-2. Na linha seguinte, `response.json()` tenta fazer parse do HTML de erro como JSON.
-3. O erro estoura no parse:  
-   `SyntaxError: Unexpected token < in JSON at position 0`.
-4. **Com `if (!response.ok)`:** você intercepta o código de status HTTP antes de tentar ler o JSON.
+1. O `fetch()` só rejeita a Promise em caso de **falha de rede física** (DNS inválido, cabo desconectado, servidor fora do ar).
+2. Se o Laravel responder **HTTP 500 (Internal Server Error)** com uma página de erro HTML:
+   - A Promise do `fetch()` é resolvida como **sucesso**!
+   - A linha `response.json()` tenta interpretar a página HTML como JSON.
+   - O código quebra com: `SyntaxError: Unexpected token < in JSON at position 0`.
+3. **Com `if (!response.ok)`:** você intercepta status 4xx e 5xx antes de tentar fazer parse de JSON.
 
 ---
 
-## 📈 Renderização no Frontend (Suporte Opcional)
+## 🎨 11. Interface Segura e Manipulação do DOM
 
-Com os dados limpos entregues pela nossa API, o frontend desenha a série temporal somente quando há cotações válidas:
+Prevenção de XSS e controle de estado na interface:
 
 ```javascript
-function renderizarGrafico(series) {
-    // Validação defensiva: se não houver cotações numéricas reais, exibe status e não plota gráfico vazio
-    const cotacoesValidas = Array.isArray(series) &&
-        series.some(p => p.status_cotacao === 'serie_disponivel' && p.d0_fechamento !== null && p.d30_fechamento !== null);
-    if (!cotacoesValidas) {
-        const statusEl = document.getElementById('status');
-        if (statusEl) {
-            statusEl.textContent = 'Visualização gráfica indisponível: cotações de mercado reais não verificadas no ambiente.';
-        }
-        return;
-    }
+function renderizarTabela(series) {
+    const tbody = document.getElementById('tabela-corpo');
+    tbody.textContent = ''; // Limpa estado anterior com segurança
 
-    const rotulos = [];
-    const cotacoes = [];
+    series.forEach(item => {
+        const tr = document.createElement('tr');
+        
+        // Uso de textContent em vez de innerHTML: previne injeção de script
+        const tdAno = document.createElement('td');
+        tdAno.textContent = item.ano;
+        tr.appendChild(tdAno);
 
-    series.forEach(ponto => {
-        rotulos.push(`${ponto.ano} D+0 (${ponto.d0_data})`);
-        cotacoes.push(ponto.d0_fechamento);
-        rotulos.push(`${ponto.ano} D+30 (${ponto.d30_data})`);
-        cotacoes.push(ponto.d30_fechamento);
-    });
+        const tdStatus = document.createElement('td');
+        tdStatus.textContent = item.status_cotacao;
+        tr.appendChild(tdStatus);
 
-    const ctx = document.getElementById('graficoIbovespa').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: rotulos,
-            datasets: [{
-                label: 'Pontos Ibovespa (Fechamento D+0 vs D+30)',
-                data: cotacoes,
-                borderColor: '#89B4FA'
-            }]
-        }
+        tbody.appendChild(tr);
     });
 }
 ```
 
 ---
 
-## ❓ Pergunta de Verificação
+## 📈 12. O Desafio do Gráfico: O Que Fazer com Cotações `null`?
 
-> **Cenário:** O desenvolvedor quer que o JavaScript no navegador faça uma requisição direta para uma API externa via `fetch('https://api.externa.com/cotacoes')`. O navegador exibe erro de CORS no console.
->
-> **Por que mover essa requisição para o Laravel (`Http::get`) resolve o problema?**
+Quando a API externa cai ou a contingência local está ativa, as cotações de fechamento são `null`:
 
-1. Porque o PHP desativa a política de segurança do navegador do cliente.
-2. Porque CORS é uma política de segurança aplicada pelos navegadores; requisições servidor-a-servidor não passam pelo navegador e o browser consome a própria origem da aplicação. *(Correta!)*
-3. Porque o Laravel altera os cabeçalhos remotos da API de terceiros.
+```javascript
+// Cláusula de guarda rigorosa:
+const temCotacoesReais = Array.isArray(series) &&
+    series.some(p => p.status_cotacao === 'serie_disponivel' &&
+                     p.d0_fechamento !== null &&
+                     p.d30_fechamento !== null);
+
+if (!temCotacoesReais) {
+    // ❌ NÃO desenhe uma linha reta no zero nem invente dados fictícios!
+    // ✅ Exiba o estado honesto de indisponibilidade na interface:
+    exibirAvisoGrafico('Visualização gráfica indisponível: cotações reais não verificadas.');
+    return;
+}
+
+desenharCanvas(series);
+```
 
 ---
 
-## 🗺️ Síntese: As Duas Pontas da Integração
+## 🧪 13. Suíte de Testes Automatizados
 
-```
-[ Provedor de Dados Externo ]
-          ▲
-          │ (1) Http::get (Backend como cliente)
-          ▼
-[ Aplicação Laravel ]  <-- Valida status, normaliza dados, trata falhas
-          ▲
-          │ (2) fetch() (Navegador como cliente)
-          ▼
-[ Interface / DOM ]    <-- Checa response.ok, exibe dados e status
+A base já vem acompanhada de testes unitários e de integração que garantem o contrato:
+
+```bash
+docker run -v $PWD:/app -w /app composer:2 php artisan test
 ```
 
-- **Backend como Cliente:** `Http::timeout(5)->get()` + checagem de status + fallback defensivo.
-- **Frontend como Cliente:** `fetch()` + `if (!response.ok)` + atualização assíncrona da interface.
+```
+   PASS  Tests\Unit\IbovespaServiceTest
+  ✓ calcular variacao percentual
+  ✓ enriquecer com variacao trata nulos defensivamente
+  ✓ contingencia local arquivo real
+  ✓ janelas didaticas produzem efeito real
 
-> 📖 **Artigo de Referência:** [[Conceitos/HTTP/consumo-api-http-e-fetch|Consumo de APIs: Http::get no Laravel e fetch() no Frontend]].
+   PASS  Tests\Feature\IbovespaApiTest
+  ✓ pagina principal renderiza com sucesso
+  ✓ endpoint api retorna contrato uniforme
+  ✓ filtro por ano valido
+  ✓ rejeita ano invalido com status 422
+  ✓ filtro por janela d15 valida
+  ✓ rejeita janela invalida com status 422
+  ✓ indisponibilidade geral retorna 503 honesto
+
+  Tests: 11 passed (93 assertions)
+```
 
 ---
 
-## 🎯 Roteiro Prático de Exercícios
+## 🎯 14. Roteiro Prático: 8 Exercícios na Base
 
-1. **Ex. 1:** Criar service `IbovespaService` no Laravel com `Http::get` e timeout defensivo.
-2. **Ex. 2:** Tratar defensivamente falhas de conexão, status HTTP e normalizar para o schema único da aplicação.
-3. **Ex. 3:** Expor endpoint JSON próprio em `routes/api.php` entregando as séries normalizadas.
-4. **Ex. 4:** Consumir o endpoint interno no Blade com `fetch()` validando `response.ok`.
-5. **Ex. 5:** Implementar contingência com estrutura arquivada em JSON e declaração explícita de indisponibilidade de cotações.
-6. **Ex. 6:** Implementar cálculo seguro de variação percentual tratando valores nulos defensivamente.
-7. **Ex. 7:** Construir interface com feedback de loading, tratamento de falhas e renderização segura via DOM.
-8. **Ex. 8:** Desafio: Validação defensiva de cotações antes de renderização gráfica em Canvas/Chart.js.
+Acompanhe a aula executando, diagnosticando e modificando a base:
+
+1. **Ex. 1:** Inspecionar e testar a Requisição 1 com timeout defensivo.
+2. **Ex. 2:** Tratar defensivamente falhas na API externa e verificar o fallback.
+3. **Ex. 3:** Acessar o endpoint interno e testar filtros de query string (`?ano=` e `?janela=`).
+4. **Ex. 4:** Inspecionar a Requisição 2 via `fetch()` e comprovar a pegadinha do `response.ok`.
+5. **Ex. 5:** Inspecionar a contingência com JSON local e marcos do TSE.
+6. **Ex. 6:** Analisar a proteção matemática do cálculo de variação com valores `null`.
+7. **Ex. 7:** Praticar a manipulação segura do DOM (`createElement` / `textContent`).
+8. **Ex. 8:** Testar a validação do gráfico e a honestidade do estado vazio com cotações nulas.
+
+---
+
+# 📖 Guia Completo & Material de Apoio da Aula 08B
+
+## ⚖️ Rigor Metodológico e Neutralidade Analítica
+
+- **Fontes Oficiais Verificadas:** As datas das eleições baseiam-se no calendário oficial do **Tribunal Superior Eleitoral (TSE)** para o 2º turno das eleições presidenciais:
+  - **2014:** 26/10/2014 — Domingo (Resolução TSE nº 23.390/2013)
+  - **2018:** 28/10/2018 — Domingo (Resolução TSE nº 23.555/2017)
+  - **2022:** 30/10/2022 — Domingo (Resolução TSE nº 23.674/2021)
+- **Definição Explícita de D0:** O marco **D0** é definido rigorosamente como o **primeiro dia útil imediatamente subsequente ao pleito** (segunda-feira pós-2º turno), uma vez que o pleito ocorre no domingo e os mercados financeiros não operam em fins de semana:
+  - **2014:** 2º Turno em 26/10/2014 &rarr; Marco Inicial D0 em **27/10/2014** (Segunda-feira).
+  - **2018:** 2º Turno em 28/10/2018 &rarr; Marco Inicial D0 em **29/10/2018** (Segunda-feira).
+  - **2022:** 2º Turno em 30/10/2022 &rarr; Marco Inicial D0 em **31/10/2022** (Segunda-feira).
+- **Marcos Didáticos Dn (D+15 e D+30):** Os marcos **D+15** e **D+30** são **marcos calendários didáticos** que representam exatamente **15 e 30 dias corridos contados a partir de D0** (e não a partir do domingo do pleito). Como são marcos calendários didáticos para análise temporal de séries, **não são anunciados como pregões de bolsa sem verificação na série**:
+  - **Janela D+15 (15 dias corridos após D0):**
+    - **2014:** 27/10/2014 + 15 dias corridos = **11/11/2014** (Terça-feira).
+    - **2018:** 29/10/2018 + 15 dias corridos = **13/11/2018** (Terça-feira).
+    - **2022:** 31/10/2022 + 15 dias corridos = **15/11/2022** (Terça-feira — Feriado da Proclamação da República).
+  - **Janela D+30 (30 dias corridos após D0):**
+    - **2014:** 27/10/2014 + 30 dias corridos = **26/11/2014** (Quarta-feira).
+    - **2018:** 29/10/2018 + 30 dias corridos = **28/11/2018** (Quarta-feira).
+    - **2022:** 31/10/2022 + 30 dias corridos = **30/11/2022** (Quarta-feira).
+- **Não Inferência de Causalidade:** As variações dos mercados financeiros respondem a uma multiplicidade de determinantes macroeconômicos e geopolíticos globais. A concomitância temporal entre datas do calendário eleitoral e flutuações do índice Ibovespa **não constitui relação de causa e efeito**.
+- **Neutralidade Absoluta:** O código, as rotas, os dados e a interface **não contêm menção a candidatos, partidos políticos ou vencedores de pleitos**.
+
+---
+
+## 🛠️ Passo a Passo Detalhado dos 8 Exercícios Práticos
+
+### Exercício 1: Inspecionar e Testar a Requisição 1 com Timeout Defensivo
+- **Arquivo de estudo:** `app/Services/IbovespaService.php` (método `consultarApiExterna`).
+- **O que fazer:**
+  1. Localize a chamada `Http::withHeaders(...)->timeout(5)->get($url)`.
+  2. Observe a presença do cabeçalho `User-Agent`. Provedores externos frequentemente rejeitam requisições sem User-Agent definido.
+  3. **Experimento:** Altere temporariamente o timeout para `0.001` (1 milissegundo) para simular uma conexão ultralenta.
+  4. Dispare a consulta no navegador e observe que a aplicação não trava: o Laravel captura a exceção de timeout e aciona o fallback.
+  5. Restaure o timeout para `5` segundos.
+- **Validação:** Execute `docker run -v $PWD:/app -w /app composer:2 php artisan test --filter=IbovespaServiceTest`.
+
+### Exercício 2: Tratamento Defensivo na Resposta da API Externa
+- **Arquivo de estudo:** `app/Services/IbovespaService.php` (método `obterCotacoes`).
+- **O que fazer:**
+  1. Analise por que `$response->successful()` não é suficiente: o serviço externo pode responder status 200 contendo erro no corpo JSON (`chart.error`).
+  2. **Experimento:** Altere a variável `IBOVESPA_API_URL` no `.env` para `http://127.0.0.1:9999/indisponivel`.
+  3. No navegador, clique em "Consultar Séries".
+  4. Verifique que a interface exibe o badge `ORIGEM: CONTINGÊNCIA LOCAL (JSON)` e status 200, sem quebrar.
+  5. Restaure a variável original no `.env`.
+
+### Exercício 3: Exposição da API JSON e Filtros de Query String
+- **Arquivos de estudo:** `routes/api.php` e `app/Http/Controllers/IbovespaController.php`.
+- **O que fazer:**
+  1. Abra a URL `http://localhost:8000/api/ibovespa/pos-eleicoes` diretamente no navegador para visualizar o payload JSON entregue pelo Laravel.
+  2. Teste os parâmetros de filtro:
+     - `http://localhost:8000/api/ibovespa/pos-eleicoes?ano=2014`
+     - `http://localhost:8000/api/ibovespa/pos-eleicoes?janela=d15`
+     - `http://localhost:8000/api/ibovespa/pos-eleicoes?ano=2018&janela=d30`
+  3. Teste valores inválidos para testar a validação:
+     - `http://localhost:8000/api/ibovespa/pos-eleicoes?ano=1999` &rarr; Verifique a resposta com erro HTTP 422.
+- **Validação:** Execute `docker run -v $PWD:/app -w /app composer:2 php artisan test --filter=filtro`.
+
+### Exercício 4: Requisição 2 via `fetch()` e a Pegadinha do `response.ok`
+- **Arquivo de estudo:** `resources/views/ibovespa.blade.php` (função `executarConsulta`).
+- **O que fazer:**
+  1. Localize o bloco:
+     ```javascript
+     if (!response.ok) {
+         throw new Error(`Servidor Laravel respondeu com status HTTP ${response.status}`);
+     }
+     ```
+  2. **Experimento:** Comente temporariamente essa verificação `if (!response.ok)`.
+  3. No seletor da página, altere o código no console para consultar uma rota inválida ou passe um ano rejeitado pelo backend.
+  4. Abra o Console do Desenvolvedor (F12) e veja o erro de parse JSON estourando sem mensagem inteligível.
+  5. Descomente a checagem e veja o erro amigável capturado no painel.
+
+### Exercício 5: Contingência Estrutural com JSON Local (Marcos do TSE)
+- **Arquivo de estudo:** `storage/app/dados/ibovespa_historico.json` e `app/Services/IbovespaService.php`.
+- **O que fazer:**
+  1. Abra o arquivo `storage/app/dados/ibovespa_historico.json`.
+  2. Inspecione as datas do 2º turno de 2014, 2018 e 2022, o marco D0 (segunda-feira pós-eleição) e as janelas D+15 e D+30.
+  3. Observe que `d0_fechamento` e `d30_fechamento` estão definidos como `null`.
+  4. Compreenda como o método `carregarHistoricoArquivado()` garante a entrega de uma estrutura válida mesmo em ambiente escolar offline.
+- **Validação:** Execute `docker run -v $PWD:/app -w /app composer:2 php artisan test --filter=contingencia`.
+
+### Exercício 6: Cálculo Seguro de Variação Percentual com Nulos
+- **Arquivo de estudo:** `app/Services/IbovespaService.php` (método `calcularVariacaoPercentual`).
+- **O que fazer:**
+  1. Inspecione a fórmula: `round((($dn - $d0) / $d0) * 100, 2)`.
+  2. Analise a cláusula de guarda:
+     ```php
+     if ($d0 === null || $dn === null || $d0 == 0) {
+         return null;
+     }
+     ```
+  3. Por que checar `$d0 == 0` é essencial em qualquer aplicação financeira?
+  4. O que aconteceria se tentássemos calcular a variação sem verificar se `$d0` é nulo?
+
+### Exercício 7: Interface Reativa e Manipulação Segura do DOM
+- **Arquivo de estudo:** `resources/views/ibovespa.blade.php` (funções `renderizarTabela` e `executarConsulta`).
+- **O que fazer:**
+  1. Identifique no código o momento em que o botão é desabilitado (`btn.disabled = true`) e o texto muda para "Consultando...".
+  2. Localize o bloco `finally` ou a restauração do botão nas Promises.
+  3. Observe como cada célula da tabela é criada com `document.createElement('td')` e o conteúdo atribuído via `td.textContent = ...`.
+  4. **Modificação:** Adicione à tabela uma coluna para exibir a fonte oficial do TSE (`item.fonte_tse`).
+
+### Exercício 8: O Tratamento Rigoroso de Cotações Nulas no Gráfico
+- **Arquivo de estudo:** `resources/views/ibovespa.blade.php` (função `renderizarGraficoCanvas`).
+- **O que fazer:**
+  1. Localize a condição que checa se há cotações numéricas verificadas:
+     ```javascript
+     const temCotacoesReais = payload.series.some(item =>
+         item.status_cotacao === 'serie_disponivel' &&
+         item.d0_fechamento !== null &&
+         (item.dn_fechamento !== null || item.d30_fechamento !== null)
+     );
+     ```
+  2. Observe que, quando a contingência local é utilizada, `temCotacoesReais` resulta em `false`.
+  3. Constatar no navegador que a área do gráfico exibe o container tracejado com a mensagem: *"Visualização gráfica indisponível: cotações de mercado reais não verificadas no ambiente."*
+  4. Por que essa postura é superior a desenhar uma linha arbitrária no zero ou inventar dados?
+- **Validação:** Verifique a renderização honesta no navegador em `http://localhost:8000/`.
+
+---
+
+## ❓ Perguntas de Verificação da Aprendizagem
+
+1. **Por que a chamada externa para o provedor de cotações deve ser feita pelo Laravel (`Http::get`) e não pelo navegador via `fetch()`?**  
+   *Resposta esperada:* Porque políticas de CORS são restrições de segurança aplicadas exclusivamente por navegadores para proteger usuários. Requisições servidor-a-servidor trafegam diretamente pela rede e não sofrem bloqueio de CORS. Além disso, a chamada no servidor protege credenciais e permite aplicar contingência defensiva centralizada.
+
+2. **O que acontece se uma API externa demorar 40 segundos para responder e o Laravel não tiver configurado `timeout()`?**  
+   *Resposta esperada:* O worker do PHP-FPM que atendeu a requisição ficará travado esperando o socket externo. Se múltiplos usuários fizerem a mesma consulta, a fila de workers se esgota rapidamente, gerando negação de serviço (DoS) para toda a aplicação. O `timeout(5)` protege a integridade do servidor.
+
+3. **Se o endpoint interno do Laravel retornar HTTP 500, o `fetch()` no navegador vai cair no bloco `.catch()`?**  
+   *Resposta esperada:* Não. O `fetch()` só rejeita a Promise em caso de falha de conexão de rede. Respostas 4xx e 500 são consideradas respostas HTTP válidas. Sem a verificação explícita de `if (!response.ok)`, a aplicação tenta processar o corpo da resposta com `response.json()`, resultando em erro de parse.
