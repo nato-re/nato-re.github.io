@@ -205,6 +205,60 @@ public function index()
 
 ---
 
+### Passo 6: Transições de Estado na View Blade
+
+Em `resources/views/eventos/show.blade.php`:
+
+Renderizamos o status com badge visual e disponibilizamos os botões de transição para o organizador via formulários com *method spoofing* (`@method('PATCH')`):
+
+```blade
+{{-- Feedback de transição de status --}}
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('status') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+@endif
+
+<div class="d-flex align-items-center gap-3 mb-4">
+    {{-- Badge do status atual --}}
+    @if ($evento->status === 'publicado')
+        <span class="badge bg-success fs-6">Publicado</span>
+    @elseif ($evento->status === 'encerrado')
+        <span class="badge bg-secondary fs-6">Encerrado</span>
+    @else
+        <span class="badge bg-warning text-dark fs-6">Rascunho</span>
+    @endif
+
+    {{-- Ações exclusivas do organizador (AuthZ) --}}
+    @can('update', $evento)
+        @if ($evento->status === 'rascunho')
+            <form action="{{ route('eventos.status', $evento) }}" method="POST" class="d-inline">
+                @csrf
+                @method('PATCH')
+                <input type="hidden" name="status" value="publicado">
+                <button type="submit" class="btn btn-sm btn-success fw-bold">
+                    🚀 Publicar Evento
+                </button>
+            </form>
+        @elseif ($evento->status === 'publicado')
+            <form action="{{ route('eventos.status', $evento) }}" method="POST" class="d-inline">
+                @csrf
+                @method('PATCH')
+                <input type="hidden" name="status" value="encerrado">
+                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold">
+                    🔒 Encerrar Evento
+                </button>
+            </form>
+        @endif
+    @endcan
+</div>
+```
+
+> **Por que `@method('PATCH')`?** Formulários HTML suportam nativamente apenas `GET` e `POST`. A diretiva `@method('PATCH')` injeta um campo oculto (`<input type="hidden" name="_method" value="PATCH">`) para o Laravel rotear a requisição com fidelidade para a rota `Route::patch()` definida no Passo 3.
+
+---
+
 ## 🎯 Agora é com vocês! (Sprint 07)
 
 Espelho do Aprendiz na entidade filha: **Módulo de Moderação de Perguntas**.

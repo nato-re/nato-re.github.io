@@ -28,6 +28,8 @@ Nesta etapa, assumimos o papel de desenvolvedores backend na startup **FalaQ-Eu_
 | **Aula 05 / Sprint 05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05\|🎯 Sprint 05: Proteção de Entidade Filha]] | [[Conceitos/Seguranca/authz-policies\|AuthZ & Policies]], [[Conceitos/Frontend/blade\|Blade]] |
 | **Aula 06 / Sprint 06** | Relacionamentos N:M e Tabelas Pivot (Upvotes) | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06\|🎯 Sprint 06: Upvotes & Ranking no Telão]] | [[Conceitos/Database/relacionamento-n-m-pivot\|Relacionamentos N:M]], [[Conceitos/Database/ordenacao-orderby\|Ordenação]] |
 | **Aula 07 / Sprint 07** | Engenharia de Requisitos & Ciclo de Vida do Dado | <a href="/slides/aula07.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-07\|🎯 Sprint 07: Sistema de Moderação de Perguntas]] | [[Conceitos/Arquitetura/engenharia-de-requisitos\|Requisitos]], [[Conceitos/Database/ciclo-de-vida-e-status\|Ciclo de Vida]] |
+| **Aula 08 / Sprint 08** | Consumo de APIs & O Ciclo HTTP (Http::get & fetch) | — | [[Atividades/sprint-08\|🎯 Sprint 08: Interações Dinâmicas com APIs & fetch]] | [[Conceitos/HTTP/consumo-api-http-e-fetch\|APIs & fetch]], [[Conceitos/HTTP/requisicao\|Requisições HTTP]] |
+| **Aula 08B** | Integração de APIs & O Ciclo das Duas Requisições HTTP | <a href="/slides/aula08b.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Aulas/aula08b\|🎯 Roteiro Prático: As Duas Requisições]] | [[Conceitos/HTTP/consumo-api-http-e-fetch\|APIs & fetch]], [[Conceitos/HTTP/requisicao\|Requisições HTTP]] |
 
 ---
 

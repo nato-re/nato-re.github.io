@@ -1,0 +1,50 @@
+{
+  "descricao": "Estrutura de dados de contingência para aula prática sobre integração de APIs (TPA)",
+  "aviso_metodologico": "Demonstração didática de estrutura de dados. As datas D+0 e D+30 são marcos calendários didáticos para análise temporal (sem verificação de pregões de mercado no ambiente). Valores numéricos de cotação de mercado não foram incluídos por indisponibilidade de verificação automatizada de rede no ambiente. Concomitância temporal não implica nexo de causalidade.",
+  "status": "demonstracao_sem_dados_reais",
+  "limitacao_tecnica": "Acesso direto a APIs financeiras externas bloqueado por política de rede/taxa de requisições (HTTP 429). Nenhuma cotação ao vivo ou dado não verificado é simulado como oficial.",
+  "fontes_eleitorais": {
+    "orgao": "Tribunal Superior Eleitoral (TSE)",
+    "url": "https://www.tse.jus.br/hotsites/pesquisas-eleitorais/resultados.html",
+    "resolucoes": {
+      "2014": "Resolução TSE nº 23.390/2013 (2º turno em 26/10/2014)",
+      "2018": "Resolução TSE nº 23.555/2017 (2º turno em 28/10/2018)",
+      "2022": "Resolução TSE nº 23.674/2021 (2º turno em 30/10/2022)"
+    }
+  },
+  "series": [
+    {
+      "ano": 2014,
+      "eleicao_data": "2014-10-26",
+      "d0_data": "2014-10-27",
+      "d0_fechamento": null,
+      "d30_data": "2014-11-26",
+      "d30_fechamento": null,
+      "variacao_percentual": null,
+      "status_cotacao": "demonstracao_indisponivel",
+      "fonte_tse": "TSE Resolução nº 23.390/2013"
+    },
+    {
+      "ano": 2018,
+      "eleicao_data": "2018-10-28",
+      "d0_data": "2018-10-29",
+      "d0_fechamento": null,
+      "d30_data": "2018-11-28",
+      "d30_fechamento": null,
+      "variacao_percentual": null,
+      "status_cotacao": "demonstracao_indisponivel",
+      "fonte_tse": "TSE Resolução nº 23.555/2017"
+    },
+    {
+      "ano": 2022,
+      "eleicao_data": "2022-10-30",
+      "d0_data": "2022-10-31",
+      "d0_fechamento": null,
+      "d30_data": "2022-11-30",
+      "d30_fechamento": null,
+      "variacao_percentual": null,
+      "status_cotacao": "demonstracao_indisponivel",
+      "fonte_tse": "TSE Resolução nº 23.674/2021"
+    }
+  ]
+}

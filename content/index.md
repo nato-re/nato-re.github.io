@@ -28,6 +28,8 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 | **05** | AuthZ & Interfaces Dinâmicas (Policies e Blade) | [[Aulas/aula05|📖 Guia]] | <a href="/slides/aula05.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-05|🎯 Sprint 05]] |
 | **06** | Relacionamentos N:M & Tabelas Pivot (Upvotes) | [[Aulas/aula06|📖 Guia]] | <a href="/slides/aula06.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-06|🎯 Sprint 06]] |
 | **07** | Engenharia de Requisitos & Ciclo de Vida do Dado | [[Aulas/aula07|📖 Guia]] | <a href="/slides/aula07.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-07|🎯 Sprint 07]] |
+| **08** | Consumo de APIs & O Ciclo HTTP (Http::get & fetch) | — | — | [[Atividades/sprint-08|🎯 Sprint 08]] |
+| **08B** | Integração de APIs & O Ciclo das Duas Requisições HTTP | [[Aulas/aula08b|📖 Guia]] | <a href="/slides/aula08b.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Aulas/aula08b|🎯 Exercícios 08B]] |
 
 👉 [[Etapas/etapa-3|Acessar o Hub Completo da 3ª Etapa com Repositório e Instruções de Setup]]
 
@@ -39,6 +41,7 @@ Consulte os artigos atômicos para tirar dúvidas de sintaxe e arquitetura:
 
 ### 📐 Arquitetura & Engenharia de Software
 - [[Conceitos/Arquitetura/engenharia-de-requisitos|Engenharia de Requisitos]] — Do briefing corporativo às classes e migrations do Laravel
+- [[Conceitos/HTTP/consumo-api-http-e-fetch|Consumo de APIs (Http::get & fetch)]] — O ciclo de dados no backend e frontend assíncrono
 - [[Conceitos/HTTP/controller|Controllers no Laravel]] — Orquestração de regras de negócio
 - [[Conceitos/HTTP/validacao-form-request|Validação com FormRequest]] — Proteção de dados e HTTP 422
 - [[Conceitos/HTTP/requisicao|Requisições HTTP]] — Ciclo de vida da requisição e status codes
