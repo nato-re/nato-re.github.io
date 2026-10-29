@@ -14,14 +14,14 @@ style: |
   .somente-web { display: none !important; }
 paginate: true
 created: 2026-10-27T08:00:00
-updated: 2026-10-27T10:00:00
+updated: 2026-10-29T10:30:00
 ---
 
 <div class="somente-web">
 
 > [!TIP] Apresentação em Slides
 > 📽️ **<a href="/slides/aula08b.html" data-router-ignore target="_blank">Abrir Slides da Aula 08B (Marp)</a>** — Versão para projeção em sala de aula.
-> 📦 **<a href="/static/tpa-aula08b-base.zip" target="_blank">Download do Projeto Base (ZIP)</a>** — Aplicação executável pronta para acompanhamento prático.
+> 📦 **<a href="https://raw.githubusercontent.com/nato-re/nato-re.github.io/main/static/tpa-aula08b-base.zip" target="_blank">Download do Projeto Base (ZIP)</a>** — Aplicação executável pronta para acompanhamento prático (<a href="https://github.com/nato-re/nato-re.github.io/tree/main/static" target="_blank">repositório público</a>).
 
 </div>
 
@@ -35,12 +35,13 @@ updated: 2026-10-27T10:00:00
 
 Você não precisa construir a infraestrutura do zero. Baixe a base executável completa:
 
-- **Download direto:** `https://nato-re.github.io/static/tpa-aula08b-base.zip`
+- **Download direto (ZIP):** `https://raw.githubusercontent.com/nato-re/nato-re.github.io/main/static/tpa-aula08b-base.zip`
+- **Repositório público:** `https://github.com/nato-re/nato-re.github.io/tree/main/static`
 - **Setup em container descartável (sem instalar PHP/Composer no host):**
 
 ```bash
 # 1. Baixar e descompactar
-curl -O https://nato-re.github.io/static/tpa-aula08b-base.zip
+curl -L -O https://raw.githubusercontent.com/nato-re/nato-re.github.io/main/static/tpa-aula08b-base.zip
 unzip tpa-aula08b-base.zip && cd tpa-aula08b-base
 
 # 2. Configurar ambiente e dependências
