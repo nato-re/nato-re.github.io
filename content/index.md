@@ -30,6 +30,7 @@ Estamos desenvolvendo o ecossistema da startup **FalaQ-Eu_T_3scuto**, focando em
 | **07** | Engenharia de Requisitos & Ciclo de Vida do Dado | [[Aulas/aula07|📖 Guia]] | <a href="/slides/aula07.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Atividades/sprint-07|🎯 Sprint 07]] |
 | **08** | Consumo de APIs & O Ciclo HTTP (Http::get & fetch) | — | — | [[Atividades/sprint-08|🎯 Sprint 08]] |
 | **08B** | Integração de APIs & O Ciclo das Duas Requisições HTTP | [[Aulas/aula08b|📖 Guia]] | <a href="/slides/aula08b.html" data-router-ignore target="_blank">📽️ Slides Marp</a> | [[Aulas/aula08b|🎯 Exercícios 08B]] |
+| **🎓** | Encerramento: Feira de Profissões Tech (roadmap.sh + IA) | — | — | [[Atividades/feira-profissoes|🎯 Feira de Profissões]] |
 
 👉 [[Etapas/etapa-3|Acessar o Hub Completo da 3ª Etapa com Repositório e Instruções de Setup]]
 
